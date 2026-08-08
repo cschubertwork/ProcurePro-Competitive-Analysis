@@ -6,7 +6,7 @@
 
 - **Company:** ProcurePro
 - **Founded:** 2019, Brisbane, Australia
-- **Founders:** Tom Newby, Nathan Denchman. CEO: Alastair Blenkin
+- **Founders:** Alastair Blenkin (Founder & CEO), Tim Rogers (Co-Founder & Head of Product), Tom Newby (Co-Founder & Head of Data/AI), Nathan Denchman (Co-Founder & Head of Engineering), Jesse Dymond (Co-Founder & Head of Design). Observed, from https://procurepro.co/about-us
 - **Headcount:** 104 as at 30 June 2026, with plans to add ~100 globally over 24 months
 - **Stage:** Series B. A$15m (US$11m) raised, valuing the company above A$100m
 
