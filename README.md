@@ -2,7 +2,7 @@
 
 A worked example of an AI-run competitive research process, applied to [ProcurePro](https://procurepro.co), the Australian construction procurement platform. Five competitors, framed on **AI data moats** and **automated workflows**, read across the markets ProcurePro is expanding into.
 
-**Start here: [`dashboard.html`](dashboard.html)** (download and open it, or view it through [htmlpreview](https://htmlpreview.github.io/?https://github.com/cschubertwork/ProcurePro-Competitive-Analysis/blob/main/dashboard.html)). Two tabs: the analysis, and an explainer of how the process works.
+**Start here: [the dashboard](https://cschubertwork.github.io/ProcurePro-Competitive-Analysis/).** Two tabs: the analysis, and an explainer of how the process works. It is a single self-contained HTML file ([`index.html`](index.html)) with no external dependencies, so it also works offline if you clone the repo.
 
 Everything in this repository was produced by running the three skills in [`.claude/skills/`](.claude/skills). You can run the same process on your own company.
 
@@ -47,7 +47,7 @@ Roughly 60% of this analysis is Observed and 40% Inferred. That ratio is stated 
 reference/          product positioning, competitor list, profile template
 profiles/           one profile per competitor, 10 sections each
 analysis/           the cross-competitor analysis
-dashboard.html      the two-tab visual dashboard
+index.html          the two-tab visual dashboard, self-contained
 .claude/skills/     the three skills that produced all of the above
 templates/          scaffolding used by /setup for a new company
 ```
