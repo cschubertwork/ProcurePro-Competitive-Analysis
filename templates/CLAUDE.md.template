@@ -1,0 +1,32 @@
+# Competitive Research: {{PRODUCT_NAME}}
+
+Competitive intelligence system tracking {{COMPETITOR_COUNT}} competitors in {{INDUSTRY}}.
+
+## Key Files
+
+| File | Purpose |
+|---|---|
+| reference/product-info.md | {{PRODUCT_NAME}} positioning & capabilities |
+| reference/competitors.md | Master competitor list |
+| reference/guidelines.md | Profile template ({{SECTION_COUNT}} sections) |
+
+## Rules
+
+1. All profiles must follow the template in reference/guidelines.md
+2. Label all claims: `- Observed:` (with URL) or `- Inferred (assumption):`
+3. Add new competitors to reference/competitors.md first
+4. Preserve and refine existing content - don't delete without reason
+
+## Commands
+
+- `/setup` - Reconfigure (use --product, --competitors, or --template to update specific parts)
+- `/competitive-update` - Research competitors for updates (--all, --competitor <name>, --update)
+- `/generate-analysis <topic>` - Generate cross-competitor analysis on any dimension
+- Or just ask naturally: "How does everyone handle pricing?" triggers analysis with confirmation
+
+## Workflow
+
+1. Start with `/competitive-update --all` to populate profiles
+2. Review and refine profiles as you learn more
+3. Ask questions or run `/generate-analysis` for cross-competitor insights
+4. Re-run `/competitive-update` periodically to stay current

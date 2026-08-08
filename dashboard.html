@@ -1,0 +1,1347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProcurePro competitive intelligence: AI data moats and automated workflows</title>
+<meta name="description" content="ProcurePro against five competitors on AI data moats and workflow automation, across ANZ, the UK and North America.">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#F2F3EE; --paper-raised:#FBFBF8; --paper-sunk:#E9EBE4;
+  --ink:#171A16; --ink-2:#4A5049; --ink-3:#757C73;
+  --rule:#D6D9D0; --rule-strong:#B7BCB2;
+
+  --network:#1B6C9E;
+  --record:#17663A;
+  --txn:#A56BC7;
+  --decision:#DA661E;
+
+  --accent:var(--decision);
+  --accent-soft:rgba(218,102,30,.10);
+  --accent-line:rgba(218,102,30,.30);
+  --accent-ink:#8F3D08;
+
+  --inferred:#6B7A8F;
+  --inferred-wash:rgba(107,122,143,.09);
+  --focus:#DA661E;
+
+  --font-sans:"Helvetica Neue",Helvetica,"Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+
+  --fs-display:clamp(30px,5.4vw,46px);
+  --fs-h2:clamp(22px,3.2vw,30px);
+  --fs-h3:19px; --fs-h4:15.5px;
+  --fs-body:16px; --fs-sm:14px; --fs-xs:12.5px;
+  --fs-label:11px; --fs-micro:10px;
+
+  --gutter:clamp(16px,4vw,40px);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --paper:#101310; --paper-raised:#181C18; --paper-sunk:#0A0C0A;
+    --ink:#E8EBE4; --ink-2:#A9B0A6; --ink-3:#7C8479;
+    --rule:#2A2F29; --rule-strong:#3C433B;
+    --network:#17689B; --record:#19753F; --txn:#A874C8; --decision:#E2702F;
+    --accent-soft:rgba(226,112,47,.13); --accent-line:rgba(226,112,47,.36);
+    --accent-ink:#FFA274;
+    --inferred:#8FA2B8; --inferred-wash:rgba(143,162,184,.11);
+    --focus:#E2702F;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --paper:#101310; --paper-raised:#181C18; --paper-sunk:#0A0C0A;
+  --ink:#E8EBE4; --ink-2:#A9B0A6; --ink-3:#7C8479;
+  --rule:#2A2F29; --rule-strong:#3C433B;
+  --network:#17689B; --record:#19753F; --txn:#A874C8; --decision:#E2702F;
+  --accent-soft:rgba(226,112,47,.13); --accent-line:rgba(226,112,47,.36);
+  --accent-ink:#FFA274;
+  --inferred:#8FA2B8; --inferred-wash:rgba(143,162,184,.11);
+  --focus:#E2702F;
+}
+:root[data-theme="light"]{
+  color-scheme: light;
+  --paper:#F2F3EE; --paper-raised:#FBFBF8; --paper-sunk:#E9EBE4;
+  --ink:#171A16; --ink-2:#4A5049; --ink-3:#757C73;
+  --rule:#D6D9D0; --rule-strong:#B7BCB2;
+  --network:#1B6C9E; --record:#17663A; --txn:#A56BC7; --decision:#DA661E;
+  --accent-soft:rgba(218,102,30,.10); --accent-line:rgba(218,102,30,.30);
+  --accent-ink:#8F3D08;
+  --inferred:#6B7A8F; --inferred-wash:rgba(107,122,143,.09);
+  --focus:#DA661E;
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:400 var(--fs-body)/1.55 var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{margin:0; text-wrap:balance; font-weight:600;}
+h1{font-size:var(--fs-display); line-height:1.06; letter-spacing:-.025em; font-weight:700;}
+h2{font-size:var(--fs-h2); line-height:1.15; letter-spacing:-.02em;}
+h3{font-size:var(--fs-h3); line-height:1.28; letter-spacing:-.01em;}
+h4{font-size:var(--fs-h4); line-height:1.35;}
+p{margin:0;}
+a{color:var(--ink); text-decoration-color:var(--accent-line); text-underline-offset:2px;}
+a:hover{text-decoration-color:var(--accent);}
+:focus-visible{outline:2px solid var(--focus); outline-offset:2px; border-radius:2px;}
+.mono{font-family:var(--font-mono); font-variant-numeric:tabular-nums;}
+.eyebrow{
+  font:500 var(--fs-label)/1.2 var(--font-mono);
+  letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+}
+.prose{max-width:68ch;}
+.num{font-variant-numeric:tabular-nums;}
+
+/* ---------- header ---------- */
+.hdr{
+  position:sticky; top:0; z-index:40; background:var(--paper);
+  border-bottom:1px solid var(--rule);
+}
+.hdr-in{
+  max-width:1180px; margin:0 auto; padding:0 var(--gutter);
+  min-height:56px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+}
+.brand{display:flex; align-items:baseline; gap:10px; margin-right:auto; padding:9px 0;}
+.brand b{font-weight:700; letter-spacing:-.015em; font-size:15px;}
+.brand span{font:500 var(--fs-label)/1 var(--font-mono); letter-spacing:.1em; color:var(--ink-3); text-transform:uppercase;}
+.tablist{display:flex; border:1px solid var(--rule-strong); border-radius:3px; overflow:hidden;}
+.tablist button{
+  appearance:none; border:0; background:transparent; cursor:pointer;
+  font:500 13px/1 var(--font-sans); color:var(--ink-2);
+  padding:9px 14px; min-height:36px; white-space:nowrap;
+}
+.tablist button + button{border-left:1px solid var(--rule-strong);}
+.tablist button[aria-selected="true"]{background:var(--ink); color:var(--paper);}
+.themebtn{
+  appearance:none; background:transparent; border:1px solid var(--rule-strong);
+  border-radius:3px; color:var(--ink-2); cursor:pointer;
+  width:36px; height:36px; font-size:14px; line-height:1; display:grid; place-items:center;
+}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1180px; margin:0 auto; padding:0 var(--gutter);}
+section{padding-block:64px; border-top:1px solid var(--rule); position:relative; scroll-margin-top:72px;}
+section:first-of-type{border-top:0;}
+.secnum{
+  position:absolute; top:-8px; left:max(var(--gutter), calc(50% - 550px));
+  background:var(--paper); padding:0 8px 0 0;
+  font:500 var(--fs-label)/1 var(--font-mono); letter-spacing:.14em; color:var(--ink-3);
+}
+.stack{display:flex; flex-direction:column;}
+.g8{gap:8px} .g12{gap:12px} .g16{gap:16px} .g24{gap:24px} .g32{gap:32px}
+.sechead{display:flex; flex-direction:column; gap:12px; margin-bottom:32px;}
+
+/* ---------- thesis ---------- */
+.thesis{padding-top:56px;}
+.standfirst{font-size:18px; color:var(--ink-2); max-width:62ch; line-height:1.5;}
+.statrow{display:flex; flex-wrap:wrap; gap:0 40px; margin-top:8px;}
+.stat{display:flex; flex-direction:column; gap:3px; padding:14px 0;}
+.stat b{font:700 24px/1 var(--font-mono); font-variant-numeric:tabular-nums; letter-spacing:-.02em;}
+.stat span{font:500 var(--fs-label)/1.3 var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);}
+.jump{font:500 13px/1 var(--font-mono); color:var(--ink-2); align-self:flex-start;}
+
+/* ---------- moat bar ---------- */
+.moat{background:var(--paper-raised); border:1px solid var(--rule); border-radius:3px; padding:24px 22px 18px;}
+.moatrows{display:flex; flex-direction:column; gap:10px; position:relative;}
+.moatrow{display:grid; grid-template-columns:196px 1fr; align-items:center; gap:14px;}
+.moatlab{text-align:right; font:500 12px/1.25 var(--font-mono); color:var(--ink-2);}
+.moatlab b{display:block; font-weight:600;}
+.moatlab em{display:block; font-style:normal; font-size:10.5px; line-height:1.3; color:var(--ink-3); margin-top:2px;}
+.moatrow.me .moatlab b{color:var(--accent-ink);}
+.track{position:relative; height:26px; background:var(--paper-sunk); border-radius:2px; overflow:hidden;}
+.bar{
+  position:absolute; top:0; height:100%; border-radius:2px;
+  display:flex; align-items:center; padding:0 8px;
+  transform-origin:left;
+}
+.bar.b-net{background:var(--network);} .bar.b-rec{background:var(--record);}
+.bar.b-txn{background:var(--txn);} .bar.b-dec{background:var(--decision);}
+.bar.ghost{background:transparent; border:1.5px dashed var(--decision);}
+.bar.split{background:linear-gradient(90deg,var(--network) 0 55%,var(--txn) 55% 100%);}
+.marginline{
+  position:absolute; right:0; top:-6px; bottom:-6px; width:2px; background:var(--accent);
+  z-index:2;
+}
+.moataxis{
+  display:grid; grid-template-columns:196px 1fr; gap:14px; margin-top:14px;
+}
+.moataxis div:last-child{display:flex; justify-content:space-between; gap:16px;}
+.moataxis span{font:500 var(--fs-micro)/1.3 var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3);}
+.hatchnote{
+  margin-top:16px; padding-top:14px; border-top:1px solid var(--rule);
+  font:400 var(--fs-xs)/1.5 var(--font-mono); color:var(--ink-3);
+}
+.pull{
+  margin-top:20px; padding-left:16px; border-left:3px solid var(--accent);
+  font-size:17px; line-height:1.5; color:var(--ink); max-width:64ch;
+}
+
+/* ---------- findings ---------- */
+.findings{display:flex; flex-direction:column; gap:0;}
+.finding{display:grid; grid-template-columns:34px 1fr; gap:16px; padding:20px 0; border-top:1px solid var(--rule);}
+.finding:first-child{border-top:0; padding-top:0;}
+.finding .n{font:500 13px/1.5 var(--font-mono); color:var(--ink-3);}
+.finding h3{margin-bottom:6px;}
+.finding p{color:var(--ink-2); font-size:var(--fs-sm); max-width:70ch;}
+
+/* ---------- archetype cards ---------- */
+.arch{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+.card{
+  background:var(--paper-raised); border:1px solid var(--rule); border-radius:3px;
+  padding:22px; display:flex; flex-direction:column; gap:14px;
+}
+.card.me{border-left:3px solid var(--accent); background:var(--paper-raised);}
+.card h3 .dot{display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:baseline;}
+.d-net{background:var(--network)} .d-rec{background:var(--record)}
+.d-txn{background:var(--txn)} .d-dec{background:var(--decision)}
+.madeof{font-size:var(--fs-sm); color:var(--ink-2);}
+.chips{display:flex; flex-wrap:wrap; gap:6px;}
+.chip{
+  font:500 11px/1 var(--font-mono); letter-spacing:.04em;
+  border:1px solid var(--rule-strong); border-radius:2px; padding:5px 8px; color:var(--ink-2);
+}
+.chip.me{border-color:var(--accent); color:var(--accent-ink); font-weight:600;}
+.cardfoot{border-top:1px solid var(--rule); padding-top:12px; margin-top:auto;}
+.cardfoot .eyebrow{display:block; margin-bottom:6px;}
+.cardfoot p{font-size:var(--fs-sm); color:var(--ink-2);}
+.crossnote{font:500 11px/1.4 var(--font-mono); color:var(--txn);}
+.outlier{
+  margin-top:14px; border:1px dashed var(--rule-strong); border-radius:3px;
+  padding:16px 18px; font-size:var(--fs-sm); color:var(--ink-2);
+}
+
+/* ---------- automation rail ---------- */
+.rail{background:var(--paper-raised); border:1px solid var(--rule); border-radius:3px; padding:28px 22px 22px;}
+.railtrack{position:relative; height:3px; background:var(--rule-strong); margin:52px 6% 0;}
+.stop{position:absolute; top:50%; width:10px; height:10px; border-radius:50%; background:var(--ink-3); transform:translate(-50%,-50%);}
+.stoplab{
+  position:absolute; top:22px; transform:translateX(-50%);
+  font:500 var(--fs-label)/1.2 var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);
+  white-space:nowrap;
+}
+.railchip{
+  position:absolute; bottom:26px; transform:translateX(-50%);
+  font:500 11px/1 var(--font-mono); white-space:nowrap;
+  border:1px solid var(--rule-strong); background:var(--paper); border-radius:2px; padding:6px 9px; color:var(--ink-2);
+}
+.railchip.me{border-color:var(--accent); color:var(--accent-ink); font-weight:600; background:var(--accent-soft);}
+.railchip.dash{border-style:dashed;}
+.railchip.ghost{opacity:.5; border-style:dashed;}
+.railchip.up2{bottom:64px;}
+.gapband{
+  position:absolute; top:-9px; height:21px; background:var(--accent-soft);
+  border-left:1px dashed var(--accent-line); border-right:1px dashed var(--accent-line);
+}
+.gapnote{margin-top:74px; font:400 var(--fs-xs)/1.5 var(--font-mono); color:var(--ink-3); text-align:center;}
+
+/* ---------- geography ---------- */
+.geo{width:100%; border-collapse:collapse;}
+.geo th,.geo td{text-align:left; padding:12px 14px; border-bottom:1px solid var(--rule); vertical-align:top;}
+.geo thead th{font:500 var(--fs-label)/1.2 var(--font-mono); letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); border-bottom:1px solid var(--rule-strong);}
+.geo tbody th{font-weight:600; font-size:var(--fs-sm); white-space:nowrap;}
+.geo tr.me th{color:var(--accent-ink);}
+.meter{display:flex; gap:2px; margin-bottom:5px;}
+.meter i{display:block; width:14px; height:5px; border-radius:1px; background:var(--ink-3); opacity:.14;}
+.meter i.on{opacity:1;}
+tr.me .meter i{background:var(--accent);}
+.geoword{font:500 var(--fs-micro)/1.2 var(--font-mono); letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3);}
+.geonote{margin-top:14px; font-size:var(--fs-xs); color:var(--ink-3); max-width:70ch;}
+
+/* ---------- matrix ---------- */
+.mxtools{display:flex; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap;}
+.switch{display:inline-flex; align-items:center; gap:9px; cursor:pointer; font:500 12px/1 var(--font-mono); color:var(--ink-2); min-height:36px;}
+.switch input{width:16px; height:16px; accent-color:var(--accent); cursor:pointer;}
+.mxscroll{overflow-x:auto; border:1px solid var(--rule); border-radius:3px; background:var(--paper-raised);}
+table.mx{border-collapse:separate; border-spacing:0; width:100%; min-width:920px; font-size:13.5px;}
+table.mx th,table.mx td{padding:10px 12px; border-bottom:1px solid var(--rule); text-align:left; vertical-align:top;}
+table.mx thead th{
+  position:sticky; top:0; z-index:3; background:var(--paper-sunk);
+  font:600 12px/1.3 var(--font-sans); border-bottom:1px solid var(--rule-strong); white-space:nowrap;
+}
+table.mx thead th.mecol{border-top:2px solid var(--accent); color:var(--accent-ink);}
+table.mx tbody th{
+  position:sticky; left:0; z-index:2; background:var(--paper-raised);
+  font:500 var(--fs-label)/1.35 var(--font-mono); letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-3); white-space:nowrap; border-right:1px solid var(--rule);
+}
+table.mx td.mecol{background:var(--accent-soft);}
+table.mx tr.dim td,table.mx tr.dim th{color:var(--ink-3);}
+.inf{border-bottom:1px dotted var(--inferred);}
+.inf sup{font:500 9px/1 var(--font-mono); color:var(--inferred); margin-left:1px;}
+.show-inferred .inf{
+  background-color:var(--inferred-wash);
+  background-image:repeating-linear-gradient(45deg,transparent 0 5px,var(--inferred-wash) 5px 6px);
+}
+.rownote{font:400 var(--fs-xs)/1.4 var(--font-sans); color:var(--ink-3);}
+.mxmobile{display:none;}
+.mxblock{border:1px solid var(--rule); border-radius:3px; background:var(--paper-raised); margin-bottom:8px;}
+.mxblock summary{
+  cursor:pointer; list-style:none; padding:14px 16px; min-height:44px;
+  display:flex; flex-direction:column; gap:4px;
+}
+.mxblock summary::-webkit-details-marker{display:none;}
+.mxblock summary .dim{font:500 var(--fs-label)/1.2 var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);}
+.mxblock summary .mine{font-size:var(--fs-sm); color:var(--accent-ink); font-weight:600;}
+.mxblock .body{padding:0 16px 14px;}
+.mxblock .body div{display:flex; justify-content:space-between; gap:14px; padding:7px 0; border-top:1px solid var(--rule); font-size:var(--fs-sm);}
+.mxblock .body div b{font-weight:500; color:var(--ink-3); white-space:nowrap;}
+
+/* ---------- competitor rows ---------- */
+.comp{border:1px solid var(--rule); border-radius:3px; background:var(--paper-raised); margin-bottom:8px;}
+.comp>summary{
+  cursor:pointer; list-style:none; padding:16px 18px; min-height:44px;
+  display:grid; grid-template-columns:auto 1fr auto; gap:14px; align-items:center;
+}
+.comp>summary::-webkit-details-marker{display:none;}
+.chev{width:14px; color:var(--ink-3); transition:transform .2s ease; font-family:var(--font-mono); font-size:12px;}
+.comp[open] .chev{transform:rotate(90deg);}
+.comptitle{display:flex; flex-direction:column; gap:4px; min-width:0;}
+.comptitle .row1{display:flex; align-items:center; gap:9px; flex-wrap:wrap;}
+.comptitle h3{font-size:16.5px;}
+.comptitle .thesis-line{font-size:var(--fs-sm); color:var(--ink-2);}
+.cat{font:500 10px/1 var(--font-mono); letter-spacing:.07em; text-transform:uppercase; border:1px solid var(--rule-strong); border-radius:2px; padding:4px 6px; color:var(--ink-3);}
+.markers{display:flex; flex-direction:column; gap:3px; text-align:right;}
+.markers span{font:500 11px/1.3 var(--font-mono); color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap;}
+.compbody{padding:0 18px 20px; display:grid; grid-template-columns:1.1fr .9fr; gap:28px; border-top:1px solid var(--rule); padding-top:18px;}
+.compbody h4{margin-bottom:7px;}
+.compbody .blk + .blk{margin-top:18px;}
+.compbody p,.compbody li{font-size:var(--fs-sm); color:var(--ink-2);}
+.compbody ol,.compbody ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:7px;}
+sup.src{font:500 9px/1 var(--font-mono); vertical-align:super;}
+sup.src a{color:var(--ink-3); text-decoration:none; padding:0 1px;}
+sup.src a:hover{color:var(--accent);}
+
+/* ---------- moves ---------- */
+.moves{display:flex; flex-direction:column;}
+.move{display:grid; grid-template-columns:34px 1fr; gap:16px; padding:20px 0; border-top:1px solid var(--rule);}
+.move:first-child{border-top:0; padding-top:0;}
+.move .n{font:500 13px/1.5 var(--font-mono); color:var(--accent-ink);}
+.move p{font-size:var(--fs-sm); color:var(--ink-2); margin-top:6px; max-width:70ch;}
+.closes{display:inline-block; margin-top:9px; font:500 10.5px/1 var(--font-mono); letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3); border:1px solid var(--rule); border-radius:2px; padding:5px 7px;}
+
+/* ---------- confidence ---------- */
+.conf{display:flex; gap:34px; align-items:flex-start; flex-wrap:wrap;}
+.confnums{display:flex; gap:22px; align-items:flex-start;}
+.confnum b{display:block; font:700 44px/1 var(--font-mono); font-variant-numeric:tabular-nums; letter-spacing:-.03em;}
+.confnum.i b{color:var(--inferred);}
+.confnum span{display:block; margin-top:5px; font:500 var(--fs-label)/1.3 var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);}
+.splitbar{width:4px; align-self:stretch; background:var(--rule-strong); min-height:60px;}
+.confnote{font-size:var(--fs-sm); color:var(--ink-2); max-width:52ch;}
+
+/* ---------- open questions ---------- */
+.oq{display:flex; flex-direction:column;}
+.oqi{display:grid; grid-template-columns:34px 1fr; gap:16px; padding:16px 0; border-top:1px solid var(--rule);}
+.oqi:first-child{border-top:0; padding-top:0;}
+.oqi .n{font:500 13px/1.5 var(--font-mono); color:var(--ink-3);}
+.oqi p{font-size:var(--fs-sm);}
+.cmd{display:inline-block; margin-top:8px; font:500 11.5px/1 var(--font-mono); background:var(--paper-sunk); border:1px solid var(--rule); border-radius:2px; padding:6px 8px; color:var(--ink-2);}
+.nocmd{display:inline-block; margin-top:8px; font:400 11.5px/1.4 var(--font-mono); color:var(--inferred);}
+
+/* ---------- tab 2 ---------- */
+.cmdchips{display:flex; flex-wrap:wrap; gap:8px;}
+.cmdchip{font:500 12.5px/1 var(--font-mono); background:var(--paper-sunk); border:1px solid var(--rule-strong); border-radius:2px; padding:8px 10px;}
+.phases{display:flex; flex-direction:column; gap:0;}
+.phase{display:grid; grid-template-columns:32px 1fr; gap:18px; padding:22px 0; border-top:1px solid var(--rule); position:relative;}
+.phase:first-child{border-top:0; padding-top:0;}
+.phase .pn{
+  font:500 12px/1 var(--font-mono); color:var(--paper); background:var(--ink);
+  width:24px; height:24px; border-radius:50%; display:grid; place-items:center;
+}
+.phase code{font:500 13px/1 var(--font-mono); color:var(--accent-ink);}
+.phase h3{margin:8px 0 6px;}
+.phase p{font-size:var(--fs-sm); color:var(--ink-2); max-width:68ch;}
+.loopback{
+  margin-top:8px; padding:12px 14px; border:1px dashed var(--rule-strong); border-radius:3px;
+  font:400 var(--fs-xs)/1.5 var(--font-mono); color:var(--ink-3);
+}
+.specimens{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+.spec{border:1px solid var(--rule); border-radius:3px; background:var(--paper-raised); padding:18px;}
+.spec .eyebrow{display:block; margin-bottom:10px;}
+.spec .line{font:400 12.5px/1.6 var(--font-mono); background:var(--paper-sunk); border-radius:2px; padding:12px; word-break:break-word;}
+.spec .why{margin-top:12px; font-size:var(--fs-sm); color:var(--ink-2);}
+.spec.observed{border-left:3px solid var(--record);}
+.spec.inferred-spec{border-left:3px solid var(--inferred);}
+table.rules{width:100%; border-collapse:collapse; font-size:var(--fs-sm);}
+table.rules th,table.rules td{text-align:left; padding:12px 14px; border-bottom:1px solid var(--rule); vertical-align:top;}
+table.rules thead th{font:500 var(--fs-label)/1.2 var(--font-mono); letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); border-bottom:1px solid var(--rule-strong);}
+table.rules td:first-child{font:500 12px/1.3 var(--font-mono); white-space:nowrap;}
+.callout{
+  border:1px solid var(--rule-strong); border-left:3px solid var(--accent);
+  border-radius:3px; padding:20px 22px; background:var(--paper-raised);
+}
+.callout p{font-size:var(--fs-sm); color:var(--ink-2); max-width:68ch;}
+.callout p + p{margin-top:10px;}
+.diff{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+.diffcol{border:1px solid var(--rule); border-radius:3px; background:var(--paper-raised); padding:18px;}
+.diffcol .eyebrow{display:block; margin-bottom:10px;}
+.diffcol .line{font:400 12.5px/1.7 var(--font-mono);}
+.diffcol .add{color:var(--record); font-weight:500;}
+.limits li{font-size:var(--fs-sm); color:var(--ink-2);}
+.limits ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px;}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--rule); padding:28px 0 56px; margin-top:0;}
+footer .wrap{display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between;}
+footer p{font:400 var(--fs-xs)/1.6 var(--font-mono); color:var(--ink-3);}
+
+[hidden]{display:none !important;}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .compbody{grid-template-columns:1fr; gap:18px;}
+}
+@media (max-width:900px){
+  .arch{grid-template-columns:1fr;}
+  .moatrow,.moataxis{grid-template-columns:150px 1fr;}
+  .specimens,.diff{grid-template-columns:1fr;}
+}
+@media (max-width:720px){
+  section{padding-block:44px;}
+  .railtrack{margin:52px 12% 0;}
+  .comp>summary{grid-template-columns:auto 1fr; }
+  .markers{display:none;}
+}
+@media (max-width:640px){
+  .hdr-in{min-height:0; padding-top:8px; padding-bottom:8px; gap:10px;}
+  .brand{width:100%; margin-right:0; padding:0;}
+  .tablist{flex:1;}
+  .tablist button{flex:1; min-height:44px;}
+  .themebtn{width:44px; height:44px;}
+  .moatrow{grid-template-columns:1fr; gap:5px;}
+  .moatlab{text-align:left;}
+  .track{height:22px;}
+  .moataxis{grid-template-columns:1fr;}
+  .moataxis div:last-child{flex-direction:column; gap:3px;}
+  .mxscroll{display:none;}
+  .mxmobile{display:block;}
+  .mxtools{display:none;}
+  .statrow{gap:0 28px;}
+  .stat b{font-size:21px;}
+  .conf{gap:20px;}
+  .geo th,.geo td{padding:10px 8px;}
+  .meter i{width:9px; height:4px;}
+}
+@media (max-width:380px){
+  h1{font-size:26px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important;}
+}
+@media (prefers-reduced-motion: no-preference){
+  .bar{animation:grow .46s cubic-bezier(.22,.7,.3,1) backwards;}
+  @keyframes grow{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+}
+
+@media print{
+  :root{--paper:#fff; --paper-raised:#fff; --paper-sunk:#f4f4f2; --ink:#000; --ink-2:#333; --ink-3:#666; --rule:#ccc; --rule-strong:#999;}
+  .hdr,.themebtn,.tablist,.jump,.mxtools{display:none !important;}
+  [role="tabpanel"]{display:block !important;}
+  .mxscroll{display:block !important;} .mxmobile{display:none !important;}
+  details{display:block;} details > summary{list-style:none;}
+  .compbody,.mxblock .body{display:block !important;}
+  section{page-break-inside:avoid; padding-block:28px;}
+  .show-inferred .inf{background-image:none;}
+  sup.src a::after{content:" (" attr(href) ")"; font-size:8px; color:#555;}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="brand">
+      <b>ProcurePro</b>
+      <span>Competitive intelligence &middot; 8 Aug 2026</span>
+    </div>
+    <div class="tablist" role="tablist" aria-label="Sections">
+      <button role="tab" id="t-landscape" aria-controls="p-landscape" aria-selected="true" tabindex="0">The landscape</button>
+      <button role="tab" id="t-method" aria-controls="p-method" aria-selected="false" tabindex="-1">How the research runs</button>
+    </div>
+    <button class="themebtn" id="themebtn" aria-label="Switch colour theme" title="Switch colour theme">&#9789;</button>
+  </div>
+</header>
+
+<main>
+
+<!-- =============== TAB 1 =============== -->
+<div role="tabpanel" id="p-landscape" aria-labelledby="t-landscape">
+
+  <section class="thesis">
+    <div class="wrap stack g16">
+      <p class="eyebrow">AI data moats and automated workflows</p>
+      <h1>Everyone has a data moat. They are not made of the same thing.</h1>
+      <p class="standfirst">ProcurePro against five competitors, read across ANZ, the UK and North America. Every claim below is either sourced to a public page or marked as an assumption. Roughly forty percent of it is assumption, and it is labelled throughout.</p>
+      <div class="statrow">
+        <div class="stat"><b>5</b><span>competitors</span></div>
+        <div class="stat"><b>4</b><span>kinds of moat</span></div>
+        <div class="stat"><b>200,000</b><span>trade packages in our corpus</span></div>
+        <div class="stat"><b>A$130bn</b><span>construction value</span></div>
+      </div>
+      <a class="jump" href="#moves">Skip to the five moves &darr;</a>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">01</span>
+    <div class="wrap">
+      <div class="sechead">
+        <h2>The narrowest corpus here, and the closest to the money</h2>
+        <p class="prose" style="color:var(--ink-2)">Bar width is how broad the corpus is. Position is how close it sits to the moment a head contractor commits project value. Colour is the kind of moat.</p>
+      </div>
+
+      <div class="moat">
+        <div class="moatrows">
+          <div class="marginline" aria-hidden="true"></div>
+
+          <div class="moatrow">
+            <div class="moatlab"><b>Felix</b><em>vendor compliance record, from FY27</em></div>
+            <div class="track"><div class="bar ghost" style="left:15%;width:17%;animation-delay:0ms"></div></div>
+          </div>
+          <div class="moatrow">
+            <div class="moatlab"><b>Procore</b><em>project system of record</em></div>
+            <div class="track"><div class="bar b-rec" style="left:6%;width:28%;animation-delay:55ms"></div></div>
+          </div>
+          <div class="moatrow">
+            <div class="moatlab"><b>Autodesk</b><em>bid graph</em></div>
+            <div class="track"><div class="bar b-net" style="left:30%;width:26%;animation-delay:110ms"></div></div>
+          </div>
+          <div class="moatrow">
+            <div class="moatlab"><b>Causeway</b><em>invoice flow</em></div>
+            <div class="track"><div class="bar split" style="left:58%;width:20%;animation-delay:165ms"></div></div>
+          </div>
+          <div class="moatrow">
+            <div class="moatlab"><b>Kojo</b><em>live materials spend</em></div>
+            <div class="track"><div class="bar b-txn" style="left:70%;width:12%;animation-delay:220ms"></div></div>
+          </div>
+          <div class="moatrow me">
+            <div class="moatlab"><b>ProcurePro</b><em>awarded packages, priced scope</em></div>
+            <div class="track"><div class="bar b-dec" style="left:87%;width:9%;animation-delay:275ms"></div></div>
+          </div>
+        </div>
+
+        <div class="moataxis">
+          <div></div>
+          <div>
+            <span>far from the money</span>
+            <span>in the room when it is committed</span>
+          </div>
+        </div>
+
+        <p class="hatchnote">Every position on this axis is inferred. The matrix marks it (i). Bar widths are judgements about corpus breadth, not measured quantities.</p>
+      </div>
+
+      <p class="pull">Six companies, six different corpora. ProcurePro&rsquo;s is the smallest on the list and the only one that sits inside the moment the money is committed. Narrow is the defence and the risk in the same fact.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">02</span>
+    <div class="wrap">
+      <div class="sechead"><h2>Five things worth acting on</h2></div>
+      <div class="findings">
+        <div class="finding">
+          <div class="n">01</div>
+          <div>
+            <h3>Everyone claims a moat, and no two are made of the same material</h3>
+            <p>Autodesk owns the supply-side bid graph, Procore the project record, Causeway UK transaction flow, Kojo live materials spend, Felix vendor compliance history. ProcurePro owns something none of them have at line-item depth: 200,000 awarded trade packages with priced scope and exclusions attached.</p>
+          </div>
+        </div>
+        <div class="finding">
+          <div class="n">02</div>
+          <div>
+            <h3>The category moved from reading to acting, and we are one rung back</h3>
+            <p>Procore ships an agent library with Digital Coworker packaging, and Kojo&rsquo;s agents chase distributors for delivery dates. BidLevel extracts, structures and compares in three minutes, which is strong document AI. A US buyer will ask what it does, not what it reads.</p>
+          </div>
+        </div>
+        <div class="finding">
+          <div class="n">03</div>
+          <div>
+            <h3>The competitor easiest to miss in the UK presents as finance software</h3>
+            <p>Causeway is pushing AI upstream from invoicing into &ldquo;automated trade mark-up and supplier selection&rdquo;, with a 59,000-supplier network already transacting. That description overlaps our own work, and it comes from a 20-year incumbent in the market we are scaling into now.</p>
+          </div>
+        </div>
+        <div class="finding">
+          <div class="n">04</div>
+          <div>
+            <h3>Autodesk&rsquo;s network is real in America and close to worthless elsewhere</h3>
+            <p>BuildingConnected&rsquo;s crowdsourced density is a US phenomenon. In Australia and the UK it approximates a cold start, which is why we won at home. The US entry needs a route around that density, and there is one.</p>
+          </div>
+        </div>
+        <div class="finding">
+          <div class="n">05</div>
+          <div>
+            <h3>Nobody credible is serving the award decision with agentic depth</h3>
+            <p>Procore&rsquo;s agents point at RFIs, submittals and contract review. Autodesk&rsquo;s AI recommends bidders and reads subcontractor financials. Kojo serves a different buyer. That gap is currently unattended, and it is exactly where our data sits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">03</span>
+    <div class="wrap">
+      <div class="sechead">
+        <h2>Four kinds of moat, and only one sits in the award room</h2>
+        <p class="prose" style="color:var(--ink-2)">Colour carries the archetype throughout this page and nothing else.</p>
+      </div>
+      <div class="arch">
+
+        <div class="card">
+          <h3><span class="dot d-net"></span>Network</h3>
+          <p class="eyebrow">Made of</p>
+          <p class="madeof">Density on the supply side. Own enough of the vendors and the demand side pays for access.</p>
+          <div class="chips"><span class="chip">Autodesk</span><span class="chip">Causeway</span></div>
+          <p class="crossnote">Causeway is also a transaction moat &rarr;</p>
+          <div class="cardfoot">
+            <span class="eyebrow">For ProcurePro</span>
+            <p>Network moats are geographically bounded and take years. Do not try to build one, and do not let a US buyer frame the decision as a network comparison. A dense network answers who should bid, which is not the expensive question.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot d-rec"></span>System of record</h3>
+          <p class="eyebrow">Made of</p>
+          <p class="madeof">Breadth of project data, then an agent layer laid on top of it.</p>
+          <div class="chips"><span class="chip">Procore</span></div>
+          <div class="cardfoot">
+            <span class="eyebrow">For ProcurePro</span>
+            <p>The standing pressure, and it does not require Procore to be good at procurement. It requires Procore to be adequate and already installed. The integration is real leverage while it lasts.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><span class="dot d-txn"></span>Transaction</h3>
+          <p class="eyebrow">Made of</p>
+          <p class="madeof">Money that has already changed hands. Price intelligence from settlement rather than from quotes.</p>
+          <div class="chips"><span class="chip">Kojo</span><span class="chip">Causeway</span></div>
+          <div class="cardfoot">
+            <span class="eyebrow">For ProcurePro</span>
+            <p>The sharpest challenge to the AI Pricing Library. Invoices record what was finally paid. Our answer is that our data carries scope, which an invoice does not, and a price with no scope attached cannot be compared.</p>
+          </div>
+        </div>
+
+        <div class="card me">
+          <h3><span class="dot d-dec"></span>Decision</h3>
+          <p class="eyebrow">Made of</p>
+          <p class="madeof">The commercial terms of the award itself, captured inside the moment the commitment is made.</p>
+          <div class="chips"><span class="chip me">ProcurePro</span><span class="chip">Felix, from FY27</span></div>
+          <div class="cardfoot">
+            <span class="eyebrow">For ProcurePro</span>
+            <p>Defensible precisely because it is narrow. None of the other five sits in the room when a head contractor levels five quotes and picks one. The risk is that the same narrowness reads as a feature to a buyer already paying Procore.</p>
+          </div>
+        </div>
+
+      </div>
+      <p class="outlier"><b>Felix is the one still pre-release.</b> Its own announcement describes discovery and experiments, with no dataset claims and no release dates. With group ARR at A$13.0m and the Nexvia go-to-market set for FY27, there is a window in Australia. It closes in FY27.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">04</span>
+    <div class="wrap">
+      <div class="sechead">
+        <h2>The category went from reading to acting, and we are one rung back</h2>
+        <p class="prose" style="color:var(--ink-2)">How deep each competitor&rsquo;s automation goes today, based on what has shipped publicly.</p>
+      </div>
+      <div class="rail">
+        <div class="railtrack">
+          <div class="gapband" style="left:33.3%; width:33.4%;" aria-hidden="true"></div>
+
+          <div class="stop" style="left:0%"></div>
+          <div class="stop" style="left:33.3%"></div>
+          <div class="stop" style="left:66.6%"></div>
+          <div class="stop" style="left:100%"></div>
+
+          <div class="stoplab" style="left:0%">Extract</div>
+          <div class="stoplab" style="left:33.3%">Compare</div>
+          <div class="stoplab" style="left:66.6%">Recommend</div>
+          <div class="stoplab" style="left:100%">Execute</div>
+
+          <div class="railchip ghost" style="left:-6%">Felix &middot; announced</div>
+          <div class="railchip dash" style="left:24%">Causeway &middot; partial</div>
+          <div class="railchip me up2" style="left:33.3%">ProcurePro</div>
+          <div class="railchip" style="left:66.6%">Autodesk</div>
+          <div class="railchip" style="left:100%">Procore</div>
+          <div class="railchip up2" style="left:100%">Kojo</div>
+        </div>
+        <p class="gapnote">One rung, and it is the one a US buyer asks about.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">05</span>
+    <div class="wrap">
+      <div class="sechead">
+        <h2>Autodesk&rsquo;s network is real in America and close to worthless elsewhere</h2>
+      </div>
+      <table class="geo">
+        <thead>
+          <tr><th scope="col">&nbsp;</th><th scope="col">ANZ</th><th scope="col">United Kingdom</th><th scope="col">North America</th></tr>
+        </thead>
+        <tbody>
+          <tr class="me">
+            <th scope="row">ProcurePro</th>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="geoword">Strong</span></td>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="geoword">Established</span></td>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i></i><i></i></span><span class="geoword">Entering</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Autodesk</th>
+            <td><span class="meter"><i class="on"></i><i></i><i></i><i></i></span><span class="geoword">Weak (i)</span></td>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i></i><i></i></span><span class="geoword">Medium (i)</span></td>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="geoword">Dominant</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Procore</th>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="geoword">Strong</span></td>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="geoword">Strong</span></td>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="geoword">Dominant</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Felix</th>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="geoword">Strong</span></td>
+            <td><span class="meter"><i class="on"></i><i></i><i></i><i></i></span><span class="geoword">Weak (i)</span></td>
+            <td><span class="meter"><i></i><i></i><i></i><i></i></span><span class="geoword">Negligible (i)</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Causeway</th>
+            <td><span class="meter"><i></i><i></i><i></i><i></i></span><span class="geoword">None (i)</span></td>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="geoword">Dominant</span></td>
+            <td><span class="meter"><i></i><i></i><i></i><i></i></span><span class="geoword">None (i)</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Kojo</th>
+            <td><span class="meter"><i></i><i></i><i></i><i></i></span><span class="geoword">None (i)</span></td>
+            <td><span class="meter"><i></i><i></i><i></i><i></i></span><span class="geoword">None (i)</span></td>
+            <td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="geoword">Established</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="geonote">The Middle East is a funded expansion market but no profile carries a scored position there, so it is not on this grid.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">06</span>
+    <div class="wrap">
+      <div class="sechead">
+        <h2>Eleven dimensions, side by side, with the guesses marked</h2>
+      </div>
+
+      <div class="mxtools">
+        <label class="switch"><input type="checkbox" id="infToggle"> Show what is inferred</label>
+        <span class="rownote">Dotted underline and a superscript i mark an assumption rather than a sourced fact.</span>
+      </div>
+
+      <div class="mxscroll">
+        <table class="mx">
+          <thead>
+            <tr>
+              <th scope="col">Dimension</th>
+              <th scope="col" class="mecol">ProcurePro</th>
+              <th scope="col">Autodesk</th>
+              <th scope="col">Procore</th>
+              <th scope="col">Felix</th>
+              <th scope="col">Causeway</th>
+              <th scope="col">Kojo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Corpus type</th>
+              <td class="mecol">Awarded trade packages, priced scope, exclusions</td>
+              <td>Bid graph: invites, bids, wins, sub financials</td>
+              <td>Project system of record</td>
+              <td>Vendor compliance, performance, ESG</td>
+              <td>Invoice and transaction flow</td>
+              <td>Live materials purchases</td>
+            </tr>
+            <tr>
+              <th scope="row">Scale marker</th>
+              <td class="mecol num">200k packages, A$130bn, 6k projects</td>
+              <td class="num">Largest crowdsourced US network</td>
+              <td class="num">16,000+ companies</td>
+              <td class="num">115,000 vendors, 8,000 users</td>
+              <td class="num">59,000 suppliers, 750 customers</td>
+              <td class="num">US$5bn/yr, 600 contractors</td>
+            </tr>
+            <tr>
+              <th scope="row">Compounds with use</th>
+              <td class="mecol">Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td><span class="inf">Partially<sup>i</sup></span></td>
+              <td>Yes</td>
+              <td>Yes, continuously</td>
+            </tr>
+            <tr>
+              <th scope="row">Proximity to margin</th>
+              <td class="mecol"><span class="inf">Highest<sup>i</sup></span></td>
+              <td><span class="inf">Medium<sup>i</sup></span></td>
+              <td><span class="inf">Low<sup>i</sup></span></td>
+              <td><span class="inf">Low<sup>i</sup></span></td>
+              <td><span class="inf">High<sup>i</sup></span></td>
+              <td><span class="inf">High<sup>i</sup></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Automation depth</th>
+              <td class="mecol">Extract, structure, compare</td>
+              <td>Recommend, extract</td>
+              <td>Agents that act</td>
+              <td>Announced, largely unshipped</td>
+              <td>Extract, automate finance workflow</td>
+              <td>Agents that transact</td>
+            </tr>
+            <tr>
+              <th scope="row">Flagship AI</th>
+              <td class="mecol">BidLevel, AI Pricing Library, CoPilot</td>
+              <td>Recommendation Engine, Financial Data Extraction</td>
+              <td>Procore AI, Agent Library, Skills (preview)</td>
+              <td>Bid Insights (rollout)</td>
+              <td>CausewayOne preconstruction AI</td>
+              <td>Kojo Intelligence Layer</td>
+            </tr>
+            <tr>
+              <th scope="row">Agentic framing</th>
+              <td class="mecol"><span class="inf">No<sup>i</sup></span></td>
+              <td><span class="inf">No<sup>i</sup></span></td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>Partial</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <th scope="row">ANZ strength</th>
+              <td class="mecol">Strong</td>
+              <td><span class="inf">Weak<sup>i</sup></span></td>
+              <td>Strong</td>
+              <td>Strong</td>
+              <td><span class="inf">None<sup>i</sup></span></td>
+              <td><span class="inf">None<sup>i</sup></span></td>
+            </tr>
+            <tr>
+              <th scope="row">UK strength</th>
+              <td class="mecol">Established</td>
+              <td><span class="inf">Medium<sup>i</sup></span></td>
+              <td>Strong</td>
+              <td><span class="inf">Weak<sup>i</sup></span></td>
+              <td>Dominant</td>
+              <td><span class="inf">None<sup>i</sup></span></td>
+            </tr>
+            <tr>
+              <th scope="row">North America</th>
+              <td class="mecol">Entering</td>
+              <td>Dominant</td>
+              <td>Dominant</td>
+              <td><span class="inf">Negligible<sup>i</sup></span></td>
+              <td><span class="inf">None<sup>i</sup></span></td>
+              <td>Established</td>
+            </tr>
+            <tr class="dim">
+              <th scope="row">Pricing transparency</th>
+              <td class="mecol">None</td>
+              <td>None</td>
+              <td>None</td>
+              <td>None</td>
+              <td>None</td>
+              <td>None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="geonote">Nobody publishes pricing. The buyer defaults to whoever they already pay.</p>
+
+      <div class="mxmobile">
+        <details class="mxblock"><summary><span class="dim">Corpus type</span><span class="mine">Awarded trade packages, priced scope, exclusions</span></summary><div class="body">
+          <div><b>Autodesk</b><span>Bid graph</span></div><div><b>Procore</b><span>Project system of record</span></div>
+          <div><b>Felix</b><span>Vendor compliance</span></div><div><b>Causeway</b><span>Invoice flow</span></div>
+          <div><b>Kojo</b><span>Live materials spend</span></div>
+        </div></details>
+        <details class="mxblock"><summary><span class="dim">Scale marker</span><span class="mine">200k packages, A$130bn</span></summary><div class="body">
+          <div><b>Autodesk</b><span>Largest US network</span></div><div><b>Procore</b><span>16,000+ companies</span></div>
+          <div><b>Felix</b><span>115,000 vendors</span></div><div><b>Causeway</b><span>59,000 suppliers</span></div>
+          <div><b>Kojo</b><span>US$5bn/yr</span></div>
+        </div></details>
+        <details class="mxblock"><summary><span class="dim">Proximity to margin (all inferred)</span><span class="mine">Highest</span></summary><div class="body">
+          <div><b>Autodesk</b><span>Medium</span></div><div><b>Procore</b><span>Low</span></div>
+          <div><b>Felix</b><span>Low</span></div><div><b>Causeway</b><span>High</span></div>
+          <div><b>Kojo</b><span>High</span></div>
+        </div></details>
+        <details class="mxblock"><summary><span class="dim">Automation depth</span><span class="mine">Extract, structure, compare</span></summary><div class="body">
+          <div><b>Autodesk</b><span>Recommend, extract</span></div><div><b>Procore</b><span>Agents that act</span></div>
+          <div><b>Felix</b><span>Largely unshipped</span></div><div><b>Causeway</b><span>Finance workflow</span></div>
+          <div><b>Kojo</b><span>Agents that transact</span></div>
+        </div></details>
+        <details class="mxblock"><summary><span class="dim">Flagship AI</span><span class="mine">BidLevel, AI Pricing Library</span></summary><div class="body">
+          <div><b>Autodesk</b><span>Recommendation Engine</span></div><div><b>Procore</b><span>Agent Library, Skills</span></div>
+          <div><b>Felix</b><span>Bid Insights</span></div><div><b>Causeway</b><span>CausewayOne precon AI</span></div>
+          <div><b>Kojo</b><span>Kojo Intelligence Layer</span></div>
+        </div></details>
+        <details class="mxblock"><summary><span class="dim">Agentic framing</span><span class="mine">No (i)</span></summary><div class="body">
+          <div><b>Autodesk</b><span>No (i)</span></div><div><b>Procore</b><span>Yes</span></div>
+          <div><b>Felix</b><span>No</span></div><div><b>Causeway</b><span>Partial</span></div>
+          <div><b>Kojo</b><span>Yes</span></div>
+        </div></details>
+        <details class="mxblock"><summary><span class="dim">North America</span><span class="mine">Entering</span></summary><div class="body">
+          <div><b>Autodesk</b><span>Dominant</span></div><div><b>Procore</b><span>Dominant</span></div>
+          <div><b>Felix</b><span>Negligible (i)</span></div><div><b>Causeway</b><span>None (i)</span></div>
+          <div><b>Kojo</b><span>Established</span></div>
+        </div></details>
+        <details class="mxblock"><summary><span class="dim">Pricing transparency</span><span class="mine">None, and none of them either</span></summary><div class="body">
+          <div><b>All six</b><span>Quote only</span></div>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">07</span>
+    <div class="wrap">
+      <div class="sechead">
+        <h2>Who you are up against</h2>
+        <p class="prose" style="color:var(--ink-2)">Open any row for the full profile. Source numbers link out to the page the claim came from.</p>
+      </div>
+
+      <details class="comp">
+        <summary>
+          <span class="chev">&#9654;</span>
+          <span class="comptitle">
+            <span class="row1"><span class="dot d-net" style="display:inline-block;width:10px;height:10px;border-radius:50%"></span><h3>Autodesk</h3><span class="cat">Direct</span></span>
+            <span class="thesis-line">BuildingConnected and TradeTapp. The largest supply-side network in US commercial construction, and the main obstacle to a US entry.</span>
+          </span>
+          <span class="markers"><span>350,000+ projects</span><span>US$3.6k&ndash;5k+/yr</span></span>
+        </summary>
+        <div class="compbody">
+          <div>
+            <div class="blk"><h4>AI data moat</h4><p>The strongest supply-side network in the category and the hardest to replicate. BuildingConnected operates the largest crowdsourced network in commercial construction, used to vet subcontractors and compare financial health.<sup class="src"><a href="https://construction.autodesk.com/products/buildingconnected/" rel="noopener" target="_blank">1</a></sup> The Recommendation Engine suggests bidders by location, trade expertise and past performance, and TradeTapp turns PDF financial statements into structured data.<sup class="src"><a href="https://resources.imaginit.com/building-solutions-blog/what-s-new-in-autodesk-construction-cloud-2026-a-practical-guide-to-the-latest-features" rel="noopener" target="_blank">2</a></sup> The corpus is bid-graph shaped: who was invited, who bid, who won. What it lacks at our granularity is the priced line-item scope of the awarded package with exclusions attached. Their data is about who, ours is about what and for how much.</p></div>
+            <div class="blk"><h4>Automated workflows</h4><p>Autodesk AI spans BuildingConnected Pro, Bid Board Pro and TradeTapp. A Bidding tool Beta in Autodesk Forma brings bid management and prequalification into the Forma preconstruction experience.<sup class="src"><a href="https://www.autodesk.com/blogs/construction/autodesk-forma-march-2026-construction-releases-built-for-whats-next/" rel="noopener" target="_blank">3</a></sup> The automation is recommendation and extraction rather than agentic execution.</p></div>
+            <div class="blk"><h4>Product overlap</h4><p>Strong on tenders, vendor management and prequalification. Partial on compare and recommend, at bid level rather than priced scope level. Absent on procurement schedule, scope of works library and contracts as a commercial workflow. The overlap is real on the front half of the funnel and thin on the back half.</p></div>
+          </div>
+          <div>
+            <div class="blk"><h4>Their case against us</h4><ul><li>The network. A US GC can find and qualify subcontractors they have never worked with.</li><li>Subcontractor financial risk data via TradeTapp, which we do not have.</li><li>Single-vendor consolidation for firms already standardised on Autodesk.</li></ul></div>
+            <div class="blk"><h4>Risks for ProcurePro</h4><ol><li><b>Highest likelihood.</b> US entry meets a dense network we cannot match, and buying decisions default to BuildingConnected.</li><li>Forma Bidding Beta deepens down-funnel into priced-scope comparison.</li><li>Autodesk owns Payapps, so it can bundle procurement to payment.</li></ol></div>
+            <div class="blk"><h4>Opportunities</h4><ul><li>Their data answers who should bid. Ours answers whether the price and scope are right.</li><li>They are slow on agentic workflow. BidLevel already does something they have not shipped.</li><li>Outside North America the network advantage largely evaporates.</li></ul></div>
+            <div class="blk"><h4>Open questions</h4><ul><li>Does the Forma Bidding Beta roadmap include priced line-item comparison and scope-gap detection?</li><li>Is Autodesk training models on the bid graph, or only using it for retrieval?</li></ul></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="comp">
+        <summary>
+          <span class="chev">&#9654;</span>
+          <span class="comptitle">
+            <span class="row1"><span class="dot d-rec" style="display:inline-block;width:10px;height:10px;border-radius:50%"></span><h3>Procore</h3><span class="cat">Direct (bundler)</span></span>
+            <span class="thesis-line">The platform incumbent in every market we are entering, and an integration partner. It does not need to be better at procurement, only adequate and already installed.</span>
+          </span>
+          <span class="markers"><span>16,000+ companies</span><span>~US$300m R&amp;D</span></span>
+        </summary>
+        <div class="compbody">
+          <div>
+            <div class="blk"><h4>AI data moat</h4><p>Breadth of project system-of-record data, plus bought capability to act on it. Procore acquired Datagrid on 20 January 2026, bringing agents for deep search, RFI validation, scope checks, prequalification, audits and daily reports. Datagrid&rsquo;s founder now leads Procore&rsquo;s AI and data strategy.<sup class="src"><a href="https://www.constructiondive.com/news/procore-acquires-datagrid-vertical-ai-firm/810120/" rel="noopener" target="_blank">4</a></sup> The moat is horizontal reach rather than depth: Procore sees the whole project but not the commercial detail of how a trade package was priced and awarded, because that decision usually happens before or outside Procore.</p></div>
+            <div class="blk"><h4>Automated workflows</h4><p>The most aggressive agentic positioning in the category. On 23 July 2026 Procore announced Digital Coworker packages, an expanded AI Agent Library, and previewed Procore Skills, which lets organisations teach Procore AI their own processes and standards.<sup class="src"><a href="https://www.procore.com/press/procore-introduces-digital-coworker-packages-expands-ai-agent-library-and-previews-skills-to-help-construction-teams-put-ai-to-work" rel="noopener" target="_blank">5</a></sup> Skills is the strategically dangerous one. Shipped agent coverage is still concentrated on RFIs, submittals and contract review, not bid levelling.</p></div>
+            <div class="blk"><h4>Product overlap</h4><p>Nothing at our depth. Partial on tenders, contracts, vendor management and purchase orders, all as modules inside a wider platform. The overlap is commercial rather than functional: Procore rarely wins on procurement capability, it wins when a customer decides one platform is worth more than the best tool.</p></div>
+          </div>
+          <div>
+            <div class="blk"><h4>Their case against us</h4><ul><li>One platform, one contract, one vendor relationship.</li><li>The broadest agent library shipping today.</li><li>Already installed at most of our target buyers.</li></ul></div>
+            <div class="blk"><h4>Risks for ProcurePro</h4><ol><li><b>Highest likelihood.</b> The bundling squeeze. Close enough makes a second contract hard to justify.</li><li>Procore Skills lets customers self-serve the workflow depth we currently sell.</li><li>Partner-to-competitor drift. The integration also gives Procore a clear view of where the procurement gap sits in its own platform.</li></ol></div>
+            <div class="blk"><h4>Opportunities</h4><ul><li>Their agents point at RFIs and submittals, not the award decision. That gap is unattended by the largest player.</li><li>&ldquo;Keep Procore, add the procurement depth it does not have&rdquo; beats a rip and replace.</li><li>Procurement will always compete internally for roadmap at Procore. Our whole roadmap is procurement.</li></ul></div>
+            <div class="blk"><h4>Open questions</h4><ul><li>Is a procurement or bid-levelling agent on the announced roadmap? Nothing found publicly.</li><li>What happens to the integration if Procore ships competing depth?</li></ul></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="comp">
+        <summary>
+          <span class="chev">&#9654;</span>
+          <span class="comptitle">
+            <span class="row1"><span class="dot d-dec" style="display:inline-block;width:10px;height:10px;border-radius:50%"></span><h3>Felix Group</h3><span class="cat">Direct &middot; Australia</span></span>
+            <span class="thesis-line">ASX-listed, Brisbane, same city and same buyers. Deeper on vendor compliance, earlier on AI, and combining with Nexvia for FY27.</span>
+          </span>
+          <span class="markers"><span>A$13.0m ARR, +51%</span><span>115,000 vendors</span></span>
+        </summary>
+        <div class="compbody">
+          <div>
+            <div class="blk"><h4>AI data moat</h4><p>A large vendor compliance and performance record, not yet turned into a shipped AI advantage. Felix positions its edge as connecting supply chain understanding to intelligent tendering.<sup class="src"><a href="https://www.felix.net/felix-for-construction" rel="noopener" target="_blank">6</a></sup> Its AI announcement makes no specific claim about proprietary datasets and describes discovery, experiments and testing with customers, with no release dates.<sup class="src"><a href="https://www.felix.net/blog/supercharging-the-felix-platform" rel="noopener" target="_blank">7</a></sup> The corpus is compliance-shaped: it knows whether a vendor is qualified, insured and performing, with much less of the priced commercial detail we hold.</p></div>
+            <div class="blk"><h4>Automated workflows</h4><p>Stated targets are vendor assessment and bid analysis. An AI-driven Bid Insights feature is flagged for broader rollout, with vendor monetisation reporting changes from Q1 FY27.<sup class="src"><a href="https://kalkine.com.au/news/announcements/felix-group-lifts-contracted-arr-to-130m-in-q4-fy26-adds-495k-new-enterprise-arr" rel="noopener" target="_blank">8</a></sup> We are further along on shipped procurement AI, though public announcements are an imperfect proxy for what is running with customers.</p></div>
+            <div class="blk"><h4>Product overlap</h4><p>Stronger than us on vendor management, prequalification and compliance. Partial on tenders and comparison. Absent at depth on procurement schedule, scope of works library and priced breakdown comparison. Nexvia is the piece to watch: a contractor-facing platform being integrated in the background with a combined go-to-market planned for FY27.</p></div>
+          </div>
+          <div>
+            <div class="blk"><h4>Their case against us</h4><ul><li>Deeper vendor compliance, ESG and risk tooling.</li><li>Reach beyond construction into mining, utilities and government.</li><li>Listed and audited, which some procurement functions prefer.</li></ul></div>
+            <div class="blk"><h4>Risks for ProcurePro</h4><ol><li><b>Moderate likelihood, real consequence.</b> Felix plus Nexvia combined for FY27 is the closest anyone in Australia comes to our shape.</li><li>Vendor-side monetisation could fund a supply network here that we do not have.</li><li>Incumbency in government and infrastructure blocks a segment we might expand into.</li></ol></div>
+            <div class="blk"><h4>Opportunities</h4><ul><li>Their AI work is still largely discovery by their own description. There is a window before the FY27 go-to-market.</li><li>Spread across six industries means less depth in commercial building specifically.</li><li>Our priced dataset answers their compliance data on a different axis, and it is the one that touches margin.</li></ul></div>
+            <div class="blk"><h4>Open questions</h4><ul><li>What does Bid Insights do, and how does it compare to BidLevel on accuracy and speed?</li><li>What is the combined Felix and Nexvia product shape for FY27?</li><li>How much of the A$13m ARR comes from commercial head contractors?</li></ul></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="comp">
+        <summary>
+          <span class="chev">&#9654;</span>
+          <span class="comptitle">
+            <span class="row1"><span class="dot d-net" style="display:inline-block;width:10px;height:10px;border-radius:50%"></span><h3>Causeway Technologies</h3><span class="cat">Direct &middot; UK</span></span>
+            <span class="thesis-line">Entrenched on UK supply chain and finance rails, now moving upstream into preconstruction and supplier selection. Easy to miss because it presents as finance software.</span>
+          </span>
+          <span class="markers"><span>59,000 suppliers</span><span>300+ staff</span></span>
+        </summary>
+        <div class="compbody">
+          <div>
+            <div class="blk"><h4>AI data moat</h4><p>Transaction flow across the UK construction supply chain, now being pushed upstream into decisions. CausewayOne is positioned as an AI-first platform with a construction-native intelligence model spanning projects, suppliers and finance.<sup class="src"><a href="https://www.causeway.com/causeway-one" rel="noopener" target="_blank">9</a></sup> Tradex spans 59,000 suppliers and 750 customers.<sup class="src"><a href="https://www.capterra.co.uk/software/1011016/tradex" rel="noopener" target="_blank">10</a></sup> The corpus is invoice-shaped, which gives something close to a price index for UK construction supply. That is adjacent to our AI Pricing Library thesis, reasoning forward from settled transactions where we reason forward from awarded packages.</p></div>
+            <div class="blk"><h4>Automated workflows</h4><p>AI is embedded in the preconstruction workflow with claimed efficiency gains of up to 75%, spanning estimate creation, BoQ ingestion, automated trade mark-up and supplier selection.<sup class="src"><a href="https://campaign.causeway.com/ai-in-causewayone-preconstruction" rel="noopener" target="_blank">11</a></sup> That last phrase describes work we also do. The 75% figure appears on a campaign page rather than in product documentation, and no supporting customer case study was found, so it is best held as a claim to verify.</p></div>
+            <div class="blk"><h4>Product overlap</h4><p>Strong on vendor management, supplier onboarding and supply chain transactions. Partial and growing on tenders, supplier selection and estimate-to-package handover. Absent on procurement schedule at our depth, scope of works library and priced trade comparison with exclusion extraction.</p></div>
+          </div>
+          <div>
+            <div class="blk"><h4>Their case against us</h4><ul><li>The supplier network already exists in the UK, transacting.</li><li>Procure-to-pay in one place, which finance directors like.</li><li>Twenty years of UK contractor relationships.</li></ul></div>
+            <div class="blk"><h4>Risks for ProcurePro</h4><ol><li><b>High likelihood.</b> UK deals get reframed as procure-to-pay, where they argue the whole cycle and we argue one stage of it.</li><li>Pricing intelligence from real invoices undercuts our AI Pricing Library pitch in the UK.</li><li>Roll-up acquisitions could add preconstruction depth faster than building it.</li></ol></div>
+            <div class="blk"><h4>Opportunities</h4><ul><li>Their centre of gravity is finance and settled transactions. They are not yet the tool a procurement manager opens to run a tender.</li><li>The efficiency claim has no public case study behind it. A documented side-by-side favours whoever has shipped, specific capability.</li><li>They are UK only. We can carry one story across ANZ, UK, Middle East and North America.</li></ul></div>
+            <div class="blk"><h4>Open questions</h4><ul><li>What does &ldquo;automated trade mark-up and supplier selection&rdquo; do in the shipped product?</li><li>Is the 75% figure backed by a customer case study?</li><li>How much of the 59,000-supplier network is trade packages rather than materials?</li></ul></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="comp">
+        <summary>
+          <span class="chev">&#9654;</span>
+          <span class="comptitle">
+            <span class="row1"><span class="dot d-txn" style="display:inline-block;width:10px;height:10px;border-radius:50%"></span><h3>Kojo</h3><span class="cat">Adjacent &middot; US</span></span>
+            <span class="thesis-line">Different buyer, same bet. The clearest working example of a procurement data moat built from transaction flow, and a read on what US buyers now expect.</span>
+          </span>
+          <span class="markers"><span>US$5bn/yr materials</span><span>~US$94m raised</span></span>
+        </summary>
+        <div class="compbody">
+          <div>
+            <div class="blk"><h4>Why an adjacent player is in a top-five list</h4><p>Kojo buys materials for specialty subcontractors, where we buy subcontractors for head contractors. It is here because it sets the expectation US buyers bring to any procurement AI pitch, not because we will meet it in deals.</p></div>
+            <div class="blk"><h4>AI data moat</h4><p>Live transaction flow plus a distributor&rsquo;s rails. The Kojo Intelligence Layer uses GPT-4 and transformer models alongside statistical methods to find project-appropriate materials at optimal prices.<sup class="src"><a href="https://www.usekojo.com/blog/kojo-intelligence-layer" rel="noopener" target="_blank">12</a></sup> More than 600 contractors purchase over US$5bn of materials annually through the platform.<sup class="src"><a href="https://www.businesswire.com/news/home/20251016530530/en/Kojo-Poised-to-Revolutionize-Construction-Materials-Management" rel="noopener" target="_blank">13</a></sup> Taking investment from distributor Wesco converts a data moat into a supply relationship, which a software-only competitor cannot replicate by shipping features.<sup class="src"><a href="https://www.digitalcommerce360.com/2025/09/17/wesco-invests-kojo-ai-procurement-tools-construction/" rel="noopener" target="_blank">14</a></sup></p></div>
+            <div class="blk"><h4>Automated workflows</h4><p>Agents assist with procurement activities, scheduling and distributor follow-ups, and the Wesco integration automates submittals, ordering and delivery scheduling. Kojo has crossed from &ldquo;AI reads your documents&rdquo; into &ldquo;AI completes the transaction&rdquo;. Chasing a distributor for a delivery date is a task, not a summary.</p></div>
+          </div>
+          <div>
+            <div class="blk"><h4>Their case against us</h4><ul><li>A real-time price signal from actual purchases.</li><li>Agents that execute, including third-party follow-up.</li><li>A supply chain partner with a balance sheet behind the product.</li></ul></div>
+            <div class="blk"><h4>Risks for ProcurePro</h4><ol><li><b>Highest likelihood.</b> Expectation setting. US buyers will ask what our agents do, not what our AI reads.</li><li>Materials and subcontract procurement converge in the head contractor&rsquo;s total spend picture.</li><li>Distributor-backed economics are a pricing model we cannot currently match.</li></ol></div>
+            <div class="blk"><h4>Opportunities</h4><ul><li>Nobody with Kojo&rsquo;s sophistication serves the head contractor buying subcontractors, a larger commitment of project value.</li><li>The Wesco deal is a template. A supply-side or insurer partnership would give us comparable structural advantage.</li><li>Kojo validates that transaction data beats document data. Our 200,000 trade packages are the same kind of asset and should be described that way.</li></ul></div>
+            <div class="blk"><h4>Open questions</h4><ul><li>Is Kojo moving up into subcontract procurement, or staying with materials?</li><li>What are the real accuracy rates on the agentic ordering workflows?</li></ul></div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <section id="moves">
+    <span class="secnum">08</span>
+    <div class="wrap">
+      <div class="sechead">
+        <h2>Five moves, cheapest first</h2>
+        <p class="prose" style="color:var(--ink-2)">Ordered by what can be done this quarter without new capability.</p>
+      </div>
+      <div class="moves">
+        <div class="move">
+          <div class="n">01</div>
+          <div>
+            <h3>Name the moat properly</h3>
+            <p>&ldquo;Proprietary procurement dataset&rdquo; is generic and every competitor says a version of it. &ldquo;The only dataset of awarded trade packages with priced scope and exclusions&rdquo; is specific, checkable and hard to answer.</p>
+            <span class="closes">Closes: undifferentiated moat claim</span>
+          </div>
+        </div>
+        <div class="move">
+          <div class="n">02</div>
+          <div>
+            <h3>Ship one agent, not an agent platform</h3>
+            <p>The award decision is unattended by every competitor. A single agent that chases missing quotes, flags scope gaps against the library and prepares the recommendation would close the framing gap without competing with Procore&rsquo;s breadth.</p>
+            <span class="closes">Closes: no agentic layer</span>
+          </div>
+        </div>
+        <div class="move">
+          <div class="n">03</div>
+          <div>
+            <h3>Compete in the UK on evidence</h3>
+            <p>Causeway&rsquo;s 75% preconstruction figure appears on a campaign page with no public case study behind it. A documented side-by-side on real bid levelling favours whoever has shipped, specific capability.</p>
+            <span class="closes">Closes: UK reframed as procure-to-pay</span>
+          </div>
+        </div>
+        <div class="move">
+          <div class="n">04</div>
+          <div>
+            <h3>Enter the US where Autodesk stops</h3>
+            <p>Position as the layer that runs after BuildingConnected has found the bidders. That story is partnership-shaped, which is a far easier first conversation than displacement.</p>
+            <span class="closes">Closes: no US network</span>
+          </div>
+        </div>
+        <div class="move">
+          <div class="n">05</div>
+          <div>
+            <h3>Look for the Wesco equivalent</h3>
+            <p>A distributor, insurer or surety relationship would convert data into structural advantage the way Kojo&rsquo;s did. This is the longest-dated move on the list and the hardest to reverse, so it goes last.</p>
+            <span class="closes">Closes: no supply-side alliance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">09</span>
+    <div class="wrap">
+      <div class="sechead"><h2>Sixty percent of this is sourced. Here is the other forty.</h2></div>
+      <div class="conf">
+        <div class="confnums">
+          <div class="confnum"><b>60%</b><span>Observed</span></div>
+          <div class="splitbar" aria-hidden="true"></div>
+          <div class="confnum i"><b>40%</b><span>Inferred</span></div>
+        </div>
+        <p class="confnote">Confidence is highest on funding, scale and shipped product announcements. It is lowest on pricing, which nobody in this category publishes, and on the internal composition of anyone&rsquo;s data corpus, which nobody discloses. Kojo and Causeway have the thinnest sourcing: treat both as lower confidence than the rest. Public announcements are a lagging and partial view of what a company has running with customers, so none of this should be read as an audit of internal capability.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">10</span>
+    <div class="wrap">
+      <div class="sechead"><h2>What we could not settle from public sources</h2></div>
+      <div class="oq">
+        <div class="oqi"><div class="n">01</div><div><p>Does the Autodesk Forma Bidding Beta roadmap extend to priced line-item comparison and scope-gap detection? The highest-value thing to watch.</p><span class="cmd">/competitive-update --competitor autodesk</span></div></div>
+        <div class="oqi"><div class="n">02</div><div><p>Is a procurement or bid-levelling agent on Procore&rsquo;s announced roadmap? Nothing found publicly.</p><span class="cmd">/competitive-update --competitor procore</span></div></div>
+        <div class="oqi"><div class="n">03</div><div><p>What does Causeway&rsquo;s &ldquo;automated trade mark-up and supplier selection&rdquo; do in the shipped product, and is the 75% figure substantiated?</p><span class="cmd">/competitive-update --competitor causeway</span></div></div>
+        <div class="oqi"><div class="n">04</div><div><p>What is the combined Felix and Nexvia product shape for FY27, and what does Bid Insights do relative to BidLevel?</p><span class="cmd">/competitive-update --competitor felix</span></div></div>
+        <div class="oqi"><div class="n">05</div><div><p>How much of Felix&rsquo;s A$13m ARR comes from commercial head contractors, the buyer we compete for?</p><span class="cmd">/competitive-update --competitor felix</span></div></div>
+        <div class="oqi"><div class="n">06</div><div><p>Nobody publishes pricing. Win and loss interviews would be worth more here than further desk research.</p><span class="nocmd">No command. This is where desk research stops.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- =============== TAB 2 =============== -->
+<div role="tabpanel" id="p-method" aria-labelledby="t-method" hidden>
+
+  <section class="thesis">
+    <div class="wrap stack g16">
+      <p class="eyebrow">The process behind the page</p>
+      <h1>Three commands, and a discipline about what counts as a fact</h1>
+      <p class="standfirst">Everything on the first tab was produced by a repeatable competitive research skill, not written by hand. The skill sets up a project, researches competitors on the web, and generates cross-competitor analysis on any dimension you name. This tab explains how it works and where it stops.</p>
+      <div class="cmdchips">
+        <span class="cmdchip">/setup</span>
+        <span class="cmdchip">/competitive-update</span>
+        <span class="cmdchip">/generate-analysis</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">01</span>
+    <div class="wrap">
+      <div class="sechead"><h2>Set it up once, then refresh it forever</h2></div>
+      <div class="phases">
+        <div class="phase">
+          <div class="pn">1</div>
+          <div>
+            <code>/setup</code>
+            <h3>Tell it what you sell and who you are worried about</h3>
+            <p>It reads your homepage, drafts your positioning, takes your competitor list, and asks what dimensions actually decide deals in your market. Those answers become a profile template. Everything downstream reads that template at runtime, so no section names are hard-coded and the structure changes per company.</p>
+            <p style="margin-top:10px; color:var(--ink-3)">Writes <span class="mono">reference/product-info.md</span>, <span class="mono">reference/competitors.md</span>, <span class="mono">reference/guidelines.md</span> and a profile stub per competitor.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="pn">2</div>
+          <div>
+            <code>/competitive-update</code>
+            <h3>Go and look, then say what changed</h3>
+            <p>Five searches and three page fetches per competitor, run in batches of three to five. Every finding is diffed against the existing profile and classified. Nothing touches a profile file until you approve it line by line, and the run produces a dated report whether or not you apply the changes.</p>
+            <p style="margin-top:10px; color:var(--ink-3)">Writes <span class="mono">analysis/updates/competitive-update-YYYY-MM-DD.md</span>.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="pn">3</div>
+          <div>
+            <code>/generate-analysis</code>
+            <h3>Ask one question across all of them at once</h3>
+            <p>Name any dimension and it extracts the relevant claims from every profile, normalises them into comparable sub-dimensions, and returns clusters, outliers, a comparison matrix and a positioning read. For this run the dimension was AI data moats and automated workflows. It reports coverage before it starts, and it will tell you when the data is too thin to answer.</p>
+            <p style="margin-top:10px; color:var(--ink-3)">Writes <span class="mono">analysis/&lt;topic-slug&gt;.md</span>.</p>
+          </div>
+        </div>
+      </div>
+      <p class="loopback">The loop runs backwards too. Every open question on the first tab carries the exact <span class="mono">/competitive-update</span> command that would close it, so the gaps in one analysis become the inputs to the next research cycle.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">02</span>
+    <div class="wrap">
+      <div class="sechead">
+        <h2>Every claim carries its receipt, or it admits it is a guess</h2>
+        <p class="prose" style="color:var(--ink-2)">Two labels, applied to every line in every profile. This is the discipline the whole method rests on, and it is why the first tab can tell you that forty percent of it is assumption.</p>
+      </div>
+      <div class="specimens">
+        <div class="spec observed">
+          <span class="eyebrow">Observed &middot; a real line from the Procore profile</span>
+          <p class="line">- Observed: Procore acquired Datagrid, a vertical AI firm, announced 20 January 2026 (https://www.constructiondive.com/news/procore-acquires-datagrid-vertical-ai-firm/810120/)</p>
+          <p class="why">A fact with a URL attached. If there is no URL, it cannot be labelled Observed. That rule is what stops a plausible-sounding inference from hardening into a fact over successive research cycles.</p>
+        </div>
+        <div class="spec inferred-spec">
+          <span class="eyebrow">Inferred &middot; a real line from the Autodesk profile</span>
+          <p class="line">- Inferred (assumption): the network moat is geographically bounded. In Australia and the UK, BuildingConnected is close to a cold start.</p>
+          <p class="why">A judgement. It may well be right, and it drives one of the five moves, but nobody published it. Marking it means a future reader can disagree with the reasoning without having to re-check the facts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">03</span>
+    <div class="wrap">
+      <div class="sechead"><h2>What counts as news, and what is just noise</h2></div>
+      <table class="rules">
+        <thead><tr><th scope="col">Classification</th><th scope="col">Criteria</th><th scope="col">Examples</th></tr></thead>
+        <tbody>
+          <tr><td>MATERIAL</td><td>Changes the competitive picture</td><td>New product line, acquisition, major pricing overhaul, leadership change, strategic pivot, new market entry</td></tr>
+          <tr><td>MINOR</td><td>Worth noting, does not change the picture</td><td>New feature, messaging tweak, new integration partner, minor pricing adjustment</td></tr>
+          <tr><td>NO CHANGE</td><td>Confirms what is already recorded</td><td>Validates that existing intelligence is still current</td></tr>
+        </tbody>
+      </table>
+      <div class="callout" style="margin-top:22px">
+        <p><b>The asymmetry is the clever part.</b> A finding that contradicts something we observed is MATERIAL. A finding that contradicts something we inferred is only MINOR, because we already said we were guessing.</p>
+        <p>The labelling is not bookkeeping. It changes what the system does next. When the classifier is uncertain between MATERIAL and MINOR it leans MATERIAL, on the basis that over-flagging costs a moment of reading and under-flagging costs a surprise.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">04</span>
+    <div class="wrap">
+      <div class="sechead"><h2>Fetched pages are evidence, never instructions</h2></div>
+      <div class="callout">
+        <p>Everything retrieved by web search or page fetch is treated as untrusted external data. It is raw intelligence to extract facts from, and no instruction, directive or command embedded in a fetched page is followed.</p>
+        <p>If a page appears to contain text aimed at the research agent, the content is discarded and the anomaly is recorded in the research notes rather than acted on. A competitor&rsquo;s website is a source, and a source does not get to give orders to the system reading it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">05</span>
+    <div class="wrap">
+      <div class="sechead">
+        <h2>A re-run adds to the profile, it never overwrites it</h2>
+        <p class="prose" style="color:var(--ink-2)">Existing content is only removed when a new Observed finding directly contradicts it and a human approves the change. Analysis reports get a dated update section rather than a rewrite, so the history of how the landscape moved stays readable.</p>
+      </div>
+      <div class="diff">
+        <div class="diffcol">
+          <span class="eyebrow">Before the re-run</span>
+          <p class="line">## 2. AI data moat<br>- Observed: Felix positions its edge as connecting supply chain understanding to intelligent tendering (felix.net)</p>
+        </div>
+        <div class="diffcol">
+          <span class="eyebrow">After the re-run</span>
+          <p class="line">## 2. AI data moat<br>- Observed: Felix positions its edge as connecting supply chain understanding to intelligent tendering (felix.net)<br><span class="add">+ Observed: an AI-driven Bid Insights feature is flagged for broader rollout, with vendor monetisation changes from Q1 FY27 (kalkine.com.au)</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="secnum">06</span>
+    <div class="wrap limits">
+      <div class="sechead">
+        <h2>What this method cannot tell you</h2>
+        <p class="prose" style="color:var(--ink-2)">A method that names its own blind spots is more useful than one that claims completeness. These are the real limits of the first tab.</p>
+      </div>
+      <ul>
+        <li><b>It is desk research.</b> There are no win and loss interviews, no customer calls and no analyst briefings behind any of it. Everything came from pages a competitor chose to publish.</li>
+        <li><b>Published announcements lag reality.</b> A company shipping quietly will look slower than one announcing loudly. Felix may have more running with customers than its blog suggests.</li>
+        <li><b>Pricing is a null column.</b> None of the six publishes pricing, so the entire dimension is inference from third-party reports and cannot be relied on for a deal.</li>
+        <li><b>Corpus composition is never disclosed.</b> Nobody publishes what is actually in their training data, so every claim about the shape of a competitor&rsquo;s moat is reasoning from product behaviour backwards.</li>
+        <li><b>Two profiles are thinner than the rest.</b> Kojo has little 2026 product detail in public, and Causeway&rsquo;s AI claims come from marketing campaign pages rather than documentation.</li>
+        <li><b>It cannot tell you what a competitor will do next.</b> It records what they have done and what they have said. The five moves are judgements built on that, not forecasts.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Generated by /generate-analysis &middot; 5 competitor profiles &middot; 60% observed, 40% inferred &middot; 8 August 2026</p>
+    <p>Source markdown and the research skill are in this repository.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---- theme ----
+  var root = document.documentElement;
+  var btn = document.getElementById("themebtn");
+  function current(){
+    var set = root.getAttribute("data-theme");
+    if (set) return set;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  btn.addEventListener("click", function(){
+    var next = current() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    btn.textContent = next === "dark" ? "☼" : "☽";
+  });
+  btn.textContent = current() === "dark" ? "☼" : "☽";
+
+  // ---- tabs ----
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var scrollMem = {};
+  function panelFor(tab){ return document.getElementById(tab.getAttribute("aria-controls")); }
+
+  function select(tab, focus){
+    var currentTab = tabs.filter(function(t){ return t.getAttribute("aria-selected") === "true"; })[0];
+    if (currentTab) scrollMem[currentTab.id] = window.scrollY;
+
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      panelFor(t).hidden = !on;
+    });
+    if (focus) tab.focus();
+    var hash = tab.id.replace("t-","");
+    if (location.hash.slice(1) !== hash) history.replaceState(null, "", "#" + hash);
+    window.scrollTo(0, scrollMem[tab.id] || 0);
+  }
+
+  tabs.forEach(function(tab, i){
+    tab.addEventListener("click", function(){ select(tab, false); });
+    tab.addEventListener("keydown", function(e){
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      select(tabs[(i + d + tabs.length) % tabs.length], true);
+    });
+  });
+
+  var initial = tabs.filter(function(t){ return t.id === "t-" + location.hash.slice(1); })[0];
+  if (initial) select(initial, false);
+
+  // ---- inferred toggle ----
+  var inf = document.getElementById("infToggle");
+  if (inf) {
+    inf.addEventListener("change", function(){
+      document.body.classList.toggle("show-inferred", inf.checked);
+    });
+  }
+
+  // ---- in-page jump keeps the right tab ----
+  document.querySelectorAll('a.jump').forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      var el = document.querySelector(a.getAttribute("href"));
+      if (el) el.scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+# Competitor Profile Guidelines
+
+Every competitor profile in `profiles/` must follow this template. Consistency enables cross-competitor analysis and automated research updates.
+
+## Labeling Convention
+
+All claims in profiles must be labeled:
+
+- **`- Observed:`** - Factual claim with inline source URL
+  - Example: `- Observed: Pricing starts at $99/mo (https://competitor.com/pricing)`
+- **`- Inferred (assumption):`** - Speculation or interpretation without direct source
+  - Example: `- Inferred (assumption): likely targeting enterprise based on demo-only sales motion`
+- **Unlabeled bullets** are treated as inferred by default
+
+This separation is critical - it lets research updates diff against known facts, and analysis reports flag confidence levels.
+
+## Profile Sections
+
+Every profile must include these sections in order:
+
+### 1) Snapshot (required)
+
+Who they are, what they do, who they serve. Include:
+- Company name, founding year, headquarters
+- Primary product/service description
+- Target market segments and buyer personas
+- Geographic focus
+- Notable customers or case studies (if public)
+- Recent funding, acquisitions, or major announcements
+
+### {{CUSTOM_SECTIONS}}
+
+### {{N}}) Pricing & Packaging (required)
+
+How they charge. Include:
+- Public pricing (if available) with URL
+- Pricing model (per-user, per-seat, usage-based, quote-only)
+- Tier names and what's included at each level
+- Free tier or trial availability
+- Enterprise/custom pricing indicators
+
+### {{N+1}}) Differentiators vs {{PRODUCT_NAME}} (required)
+
+Direct comparison. Include:
+- Where they are stronger than {{PRODUCT_NAME}}
+- Where they are weaker than {{PRODUCT_NAME}}
+- Where they are roughly on par
+- Focus on dimensions that matter to your buyers
+
+### {{N+2}}) Risks for {{PRODUCT_NAME}} (required)
+
+Threat scenarios. Include:
+- Switching cost advantages they hold
+- Market momentum or installed base threats
+- Upcoming features or strategic moves that could impact you
+- Partnerships or ecosystem advantages
+
+### {{N+3}}) Opportunities for {{PRODUCT_NAME}} (required)
+
+Favorable angles. Include:
+- Gaps in their positioning you can exploit
+- Customer pain points they don't address well
+- Market segments they're ignoring
+- Messaging or positioning weaknesses
+
+### {{N+4}}) Open Questions (required)
+
+Things still unknown. Include:
+- Data points to verify from sales conversations or lost deals
+- Pricing details that aren't public
+- Product capabilities that are unclear
+- Strategic direction that's speculative
+
+## Writing Style
+
+- Use bullet points, not paragraphs
+- Neutral, factual language - this is intelligence, not marketing
+- Every Observed claim needs an inline URL in parentheses
+- Keep profiles scannable - someone should get the picture in 2 minutes
