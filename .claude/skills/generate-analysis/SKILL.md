@@ -1,3 +1,8 @@
+---
+name: generate-analysis
+description: Generate a cross-competitor analysis report on any topic from existing competitor profiles. Use for /generate-analysis <topic> and natural cross-competitor questions like "How does everyone handle pricing?" or "How do we stack up on enterprise features?".
+---
+
 # generate-analysis
 
 Generate cross-competitor analysis reports on any topic from existing competitor profiles.

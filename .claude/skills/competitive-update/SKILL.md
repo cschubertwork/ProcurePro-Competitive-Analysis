@@ -1,3 +1,8 @@
+---
+name: competitive-update
+description: Research tracked competitors for updates via web search, classify each finding as material or minor, and optionally apply approved changes to profiles. Use for "competitive update", "check competitors", "competitive refresh", "update competitor profiles", or any request to find out what competitors have changed.
+---
+
 # competitive-update
 
 Research competitors for updates using web search. Finds new information, classifies changes, and optionally updates profiles with approval.
