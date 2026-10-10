@@ -1,97 +1,95 @@
 # AI Data Moat and Automated Workflows: Cross-Competitor Analysis
 
-*Generated 2026-08-08 | ProcurePro versus 5 competitors | Framing: newer AI data moat and workflow automation initiatives, read against ANZ, UK and North America*
+*First generated 2026-08-08. Regenerated 2026-10-10 after a full re-check of every claim (see `analysis/verification-note.md`). ProcurePro against six competitors, read through newer AI data moat and workflow automation initiatives in ANZ, the UK and North America.*
+
+Facts here come from the profiles and `reference/`, where each carries its source and a verbatim quote re-checked on 2026-10-10. Lines that compare, rank or recommend are judgements, and say so.
 
 ## Executive summary
 
-- **Everyone now claims a data moat, and no two are made of the same material.** Autodesk owns the supply-side bid graph, Procore owns the project record, Causeway owns UK transaction flow, Kojo owns live materials spend, Felix owns vendor compliance history. ProcurePro owns something none of them have at line-item depth: 200,000 awarded trade packages with priced scope and exclusions attached. It is the narrowest corpus on the list and the closest to margin.
+- **Bid levelling became a feature in 2026, so reading quotes is no longer the moat.** Procore's Bid Leveling Agent sits in its Pro AI package, generally available since 23 July 2026. E1's Quote Analysis compares two to five quotes per trade package for scope gaps, documented for its UK customers since October 2025 and in Australia since April 2026. Autodesk showed a Bid Proposal Agent in beta in September 2026. ProcurePro's BidLevel is shipped, and anyone can now use it free. Judgement: what a new entrant cannot copy is ProcurePro's history, more than 200,000 processed trade packages by its own count, and the work is to make every comparison draw on it.
 
-- **The category moved from reading to acting in about twelve months, and ProcurePro is one rung behind the leaders.** Procore ships an agent library with Digital Coworker packaging, and Kojo's agents chase distributors for delivery dates. BidLevel extracts, structures and compares in three minutes, which is excellent document AI, but a buyer in the US will ask what it *does*, not what it reads.
+- **Everyone claims a data moat, and each is made of different material.** Autodesk and E1 hold bidder networks, Procore holds the project record, Causeway holds UK invoice flow and Kojo holds materials spend (its own figure). Felix holds vendor compliance records. Judgement: ProcurePro's corpus is the narrowest and sits closest to the award, but it is no longer the only one in the room. Procore converts a levelled bid into a subcontract, and Autodesk sells bid comparison "to choose the best subcontractor".
 
-- **The competitor easiest to miss in the UK is the one that presents as finance software.** Causeway is pushing AI upstream from invoicing into "automated trade mark-up and supplier selection", with a 59,000-supplier network already transacting. That description overlaps ProcurePro's own work, and it comes from a 20-year incumbent in the market ProcurePro is scaling into now.
+- **At home, the rival to watch is E1, not Felix.** E1 says more than 100,000 Australian organisations used it last year and head contractors posted 24,000 tenders worth $354bn on it in 2025. It now has AI quote analysis, and since merging with C-Link in July 2025 it sells pre- and post-award procurement in the UK too. Felix's contracted ARR is A$13.0m, most of last year's growth came from an acquisition, and it raised A$5.54m in September at a market value near A$12.5m. Judgement: Felix is a capital-constrained compliance specialist; E1 owns the tender traffic ProcurePro's customers send.
 
-- **Autodesk's network advantage is real in North America and close to worthless everywhere else.** BuildingConnected's crowdsourced density is a US phenomenon. In Australia and the UK it approximates a cold start, which is why ProcurePro won at home. The US entry needs a route around that density, and there is one.
+- **In the UK, Causeway is larger and closer to tendering than the first run said.** Its trading company's turnover was £76.4m in 2025, group ARR £81.8m, and it already sells tender management with bid comparison. Its estimating product sends more than 1.75m trade packages a year, by its own count. It is founder-led with a minority private equity stake, and it registered an Australian company in 2025.
 
-- **Nobody credible is serving the head contractor's award decision with agentic depth.** Procore's agents point at RFIs, submittals and contract review. Autodesk's AI recommends bidders and reads sub financials. Kojo serves the wrong buyer. That gap is currently unattended, and it is exactly where ProcurePro's data sits.
+- **In North America, Autodesk's network is the obstacle and Procore is both channel and rival.** BuildingConnected has been sold in the UK, Ireland, Australia and New Zealand since 2020, so the earlier claim that its network is worthless outside the US does not hold. ProcurePro's Procore Marketplace app shows 209 installs, while Procore sells its own bid-levelling agent to the same buyers. Kojo, the adjacent case, shows the data-plus-distributor model working; its agents are described in its own words and their execution isn't shown independently.
+
+## What the re-check changed
+
+The first version (8 August 2026) said nobody served the award decision with AI, and that the category's agents pointed at RFIs and submittals. Procore's levelling agent was already generally available by then, on 23 July. That finding is withdrawn. E1, the company most likely to meet ProcurePro in an Australian tender, was missing from the set and is now profiled. The full list of corrections is in `analysis/verification-note.md`.
 
 ## Comparison matrix
 
-| Dimension | ProcurePro | Autodesk BC/TradeTapp | Procore | Felix (AU) | Causeway (UK) | Kojo (US) |
-|---|---|---|---|---|---|---|
-| Corpus type | Awarded trade packages, priced scope, exclusions | Bid graph: invites, bids, wins, sub financials | Project system of record | Vendor compliance, performance, ESG | Invoice and transaction flow | Live materials purchases |
-| Scale marker | 200k packages, A$130bn, 6k projects | Largest crowdsourced network in US commercial | 16,000+ companies | 115,000 vendors, 8,000 users | 59,000 suppliers, 750 customers | US$5bn/yr, 600 contractors |
-| Compounds with use | Yes | Yes | Yes | Partially (i) | Yes | Yes, continuously |
-| Data proximity to margin | Highest (i) | Medium (i) | Low (i) | Low (i) | High (i) | High (i) |
-| Automation depth | Extract, structure, compare | Recommend, extract | Agents that act | Announced, largely unshipped | Extract, automate finance workflow | Agents that transact |
-| Flagship AI | BidLevel, AI Pricing Library, CoPilot | Recommendation Engine, Financial Data Extraction | Procore AI, Agent Library, Skills (preview) | Bid Insights (rollout) | CausewayOne preconstruction AI | Kojo Intelligence Layer |
-| Agentic framing | No (i) | No (i) | Yes | No | Partial | Yes |
-| ANZ strength | Strong | Weak (i) | Strong | Strong | None (i) | None (i) |
-| UK strength | Established | Medium (i) | Strong | Weak (i) | Dominant | None (i) |
-| North America | Entering | Dominant | Dominant | Negligible (i) | None (i) | Established (sub-side) |
-| Pricing transparency | None | None | None | None | None | None |
+| Dimension | ProcurePro | Autodesk (BuildingConnected, TradeTapp) | Procore | E1 (AU) | Felix (AU) | Causeway (UK) | Kojo (US) |
+|---|---|---|---|---|---|---|---|
+| Corpus type | Processed trade packages: quotes, priced scope, exclusions | Bid graph: invites, bids, sub qualification | Project system of record | Tender invitations and quotes across ANZ | Vendor compliance and performance | Invoice and transaction flow | Materials orders |
+| Scale marker (vendor figures) | 200,000+ trade packages, 6,000+ projects | 1.5M+ professionals, 2M+ projects | US$1.32bn FY25 revenue, 2,871 customers over US$100k ARR | 100,000+ organisations a year, 24,000 tenders in 2025 | A$13.0m ARR, 132k marketplace vendors | £81.8m group ARR, 60,000+ suppliers | US$5bn+ materials a year, 600+ contractors |
+| Bid comparison with AI | BidLevel, shipped, free stand-alone | Bid Proposal Agent, beta, US | Bid Leveling Agent, Pro package, GA | Quote Analysis, shipped (UK Oct 2025, AU Apr 2026) | Bid Insights, in customer validation | Tender comparison in Enquiries (AI not shown) | Not its buyer (i) |
+| Agentic framing | Assistant (AI Pulse) and connectors (i) | "AI that acts" | 20 agents in Pro, Agent Studio | No (i) | No (i) | Partial: AI on campaign pages | Agents "to assist" (vendor wording) |
+| Compounds with use (i) | Yes | Yes | Yes | Yes | Partly | Yes | Yes |
+| Data proximity to the award (i) | Highest | High | High where its bidding is used | High | Low | Medium | Low (wrong buyer) |
+| Strongest market | ANZ, growing UK | North America | North America (85% of revenue) | ANZ, UK via C-Link | ANZ | UK | US and Canada |
 
-*(i) marks an inferred assumption. Everything else is sourced in the underlying profiles.*
+*(i) marks an inferred judgement. Every other cell is a fact sourced in the profiles. Only E1 publishes a list price for builders (plans from A$6,000 a year); the others quote per customer.*
 
 ## Four kinds of moat, and which one ProcurePro is building
 
-### Network moats: Autodesk, Causeway
-- **Who:** Autodesk in US commercial construction, Causeway in UK supply chain
-- **Approach:** own the density of the supply side, then charge the demand side for access. Autodesk gives subcontractors a free tier to keep the graph dense. Causeway has 59,000 suppliers on its invoicing rails.
-- **Implication for ProcurePro:** network moats are geographically bounded and take years to build. ProcurePro should not try to build one, and should not let a US buyer frame the decision as a network comparison. The counter is that a dense network answers "who should bid", which is not the expensive question.
+### Network moats: Autodesk, E1, Causeway, Felix
+- **Who:** Autodesk in North American commercial construction, E1 in Australian tendering (and the UK through C-Link), Causeway on UK supply-chain rails, and Felix on a smaller vendor-compliance network in Australia.
+- **Approach:** own the supply side's attention, then charge the buyer for access to it. Autodesk claims 1.5M+ professionals on BuildingConnected. E1 counts 100,000+ organisations a year. Causeway reports 60,000+ suppliers onboarded to its e-invoicing. Felix recorded 132,393 vendors in its marketplace in Q4 FY26.
+- **Implication for ProcurePro (judgement):** networks take years to build and are bounded by geography. ProcurePro should not try to build one, and should not let a buyer frame the decision as a network comparison. A network answers "who should bid", and a levelling tool answers "what did they price"; the expensive question is "who should win, given everything we've awarded before".
 
 ### System-of-record moats: Procore
-- **Who:** Procore, and Autodesk to a lesser degree through Forma
-- **Approach:** own the project data surface, then layer agents on it. The Datagrid acquisition in January 2026 bought the agent capability outright, and Procore Skills lets customers encode their own processes into the platform.
-- **Implication for ProcurePro:** this is the standing existential pressure and it does not require Procore to be good at procurement. It requires Procore to be adequate and already installed. The integration partnership is real leverage while it lasts, and it is also reconnaissance for Procore.
+- **Who:** Procore, and Autodesk through Forma.
+- **Approach:** own the project data surface, then add agents. Procore bought Datagrid for $168.0m in January 2026, sells 20 agents in its Pro package (Bid Leveling and Procurement Log Creator among them), and lets customers build their own in Agent Studio.
+- **Implication for ProcurePro (judgement):** this is the standing pressure, and it does not need Procore to be best at procurement. It needs Procore's levelling to be adequate and already paid for. The Marketplace integration is real distribution while it lasts, and it also shows Procore where the demand is.
 
-### Transaction moats: Kojo, Causeway
-- **Who:** Kojo with US$5bn a year of materials spend, Causeway with UK invoice flow
-- **Approach:** derive price intelligence from money that has already changed hands. Kojo went further and took investment from a distributor, converting data into supply relationship.
-- **Implication for ProcurePro:** this is the sharpest challenge to the AI Pricing Library. Invoices beat awards as a price signal because they record what was finally paid. ProcurePro's answer is that its data carries *scope*, which an invoice does not. A price with no scope attached cannot be compared, and that argument needs making explicitly.
+### Transaction moats: Causeway, Kojo
+- **Who:** Causeway with UK invoice flow, Kojo with US materials spend.
+- **Approach:** take price intelligence from money that has already changed hands. Kojo went further and took US$10m from Wesco, a distributor, turning data into a supply relationship.
+- **Implication for ProcurePro (judgement):** invoices are a strong price signal because they record what was paid. ProcurePro's answer is that its data carries scope and exclusions, which an invoice does not, and a price with no scope attached can't be compared. That argument has to be made out loud.
 
-### Decision moats: ProcurePro, and Felix eventually
-- **Who:** ProcurePro today. Felix from FY27 if the Nexvia integration lands as planned.
-- **Approach:** sit inside the moment the commitment is made and capture the commercial terms of the award itself.
-- **Implication for ProcurePro:** this is the defensible position, and it is defensible precisely because it is narrow. None of the other five sits in the room when a head contractor levels five quotes and picks one. The risk is that the same narrowness reads as a feature to a buyer already paying Procore.
-
-### Outlier
-
-- **Felix:** the competitor whose AI is least far along publicly. Its own announcement describes discovery and experiments, with no dataset claims and no release dates. With group ARR at A$13.0m and the Nexvia go-to-market set for FY27, there is a window in Australia, though public announcements understate what any company has running internally.
+### Decision moats: ProcurePro
+- **Who:** ProcurePro. Felix only if it takes its Nexvia integration further, which its filings state as intent with no date.
+- **Approach:** sit inside the moment the commitment is made, and keep the commercial terms of every award.
+- **Implication for ProcurePro (judgement):** the position is still defensible, though Procore and E1 now compare quotes too. It holds if each comparison draws on years of awarded scope and price that a newcomer does not hold. The risk is that a buyer already paying Procore sees one levelling tool as much like another.
 
 ## ProcurePro positioning
 
 **Strengths**
-- The only corpus on this list that contains priced scope with exclusions at line-item level, across 200,000 packages and A$130bn
-- Depth in a workflow every competitor treats as one module among many
-- Shipped, specific AI (three minutes for a full bid breakdown) at a moment when the nearest local rival is still running experiments
-- Bouygues as customer turned investor is unusually strong validation for a UK and European push
+- A corpus of processed trade packages with priced scope and exclusions, more than 200,000 packages across 6,000 projects by its own count. That the packages record what was finally awarded is a judgement from how the workflow runs; ProcurePro doesn't say so in those words
+- The only company in the set whose whole product is the subcontractor award (judgement)
+- BidLevel is shipped and free to try, which puts it in front of non-customers
+- Bouygues as customer turned investor, a strong reference for the UK and Europe
+- A Procore Marketplace app with 209 installs, and a read-only MCP connector announced in September 2026
 
-**Gaps**
-- No agentic execution layer, in a year when the two best-funded competitors are selling exactly that
-- No supply-side network anywhere, which is the whole game in the US
-- No published pricing, in a market where nobody publishes pricing, so the buyer defaults to the incumbent they already pay
-- No supply-side or distributor alliance of the kind Wesco gave Kojo
+**Gaps (judgement)**
+- Its lead in AI bid comparison has narrowed to being shipped and free; Procore and E1 have shipped their own, and Autodesk's is in beta
+- No supply-side network in any market, which is the main currency in the US
+- No published pricing, while E1 lists builder plans from A$6,000 a year, so a price-led buyer has an easy comparison
+- No supply-side or distributor alliance like Kojo's with Wesco
 
-**Opportunities**
-1. **Name the moat properly.** "Proprietary procurement dataset" is generic and every competitor says a version of it. "The only dataset of awarded trade packages with priced scope and exclusions" is specific, checkable and hard to answer.
-2. **Ship one agent, not an agent platform.** The award decision is unattended by every competitor. A single agent that chases missing quotes, flags scope gaps against the library and prepares the recommendation would close the framing gap without competing with Procore's breadth.
-3. **Compete in the UK on evidence.** Causeway's 75% preconstruction figure appears on a campaign page with no public case study behind it. A documented side-by-side on real bid levelling favours whoever has shipped, specific capability.
-4. **Enter the US where Autodesk stops.** Position as the layer that runs after BuildingConnected has found the bidders. That story is partnership-shaped, which is a far easier first conversation than displacement.
-5. **Look for the Wesco equivalent.** A distributor, insurer or surety relationship would convert data into structural advantage the way Kojo's did.
+**Opportunities (judgement)**
+1. **Name the moat as history.** Five of the seven companies now sell or trial AI that reads quotes. "Every comparison checked against 200,000 packages that came before" is specific and hard to copy.
+2. **Make the comparison prove it.** Show, in BidLevel's output, where a price or exclusion sits against past awards for the same trade. A tool without the history can't produce that line.
+3. **Publish a measured accuracy test.** Every competitor now claims levelling; none publishes measured accuracy. The first to publish a side-by-side on real packages sets the terms.
+4. **Treat E1 as the main threat in two markets.** E1 carries the tender traffic in Australia, and with C-Link it already joins pre- and post-award in the UK. ProcurePro's answer is a package history that E1 does not say it keeps.
+5. **Enter the US through Procore's marketplace, planning for its agent.** The integration is the cheapest door in; the plan has to assume Procore's own Bid Leveling Agent is in the same customer's menu.
 
 ## Data confidence
 
-- Observed claims across the five profiles: roughly 60%
-- Inferred assumptions: roughly 40%
-- Confidence is highest on funding, scale and shipped product announcements, and lowest on pricing (nobody in this category publishes it) and on the internal composition of each competitor's data corpus, which is never disclosed.
-- Profiles with the thinnest sourcing: Kojo (US-only coverage, little 2026 product detail) and Causeway, where the AI claims come from marketing campaign pages in place of product documentation. Treat both as lower confidence than the rest.
-- A general caution that applies to every competitor here: public announcements are a lagging and partial view of what a company has running with customers. Absence of evidence is not evidence of absence, and none of these judgements should be read as an audit of internal capability.
+- The re-check on 2026-10-10 read every line in the profiles, `reference/product-info.md` and `reference/competitors.md` against the page it cites, fetched that day, and held a verbatim quote for each sourced fact. 95% of facts (320 of 334) carry a re-checked source; counts per file are in `analysis/verification-note.md`.
+- Confidence is highest on filed figures (Procore's and Autodesk's SEC filings, Felix's ASX reports, Causeway's Companies House accounts) and lowest on vendor product claims, which describe what a company sells and say little about how well it works.
+- Lowest-confidence areas: Kojo (Business Wire blocks automated fetches, so some quotes come from archive captures), and whether announced agents run as described. Only E1 publishes a price.
+- Public announcements lag what companies have running with customers. Absence of evidence isn't evidence of absence, and nothing here is an audit of internal capability.
 
 ## Open questions
 
-1. Does the Autodesk Forma Bidding Beta roadmap extend to priced line-item comparison and scope-gap detection? This is the single highest-value thing to watch. → `/competitive-update --competitor autodesk`
-2. Is a procurement or bid-levelling agent on Procore's announced roadmap? Nothing found publicly. → `/competitive-update --competitor procore`
-3. What does Causeway's "automated trade mark-up and supplier selection" do in the shipped product, and is the 75% figure substantiated? → `/competitive-update --competitor causeway`
-4. What is the combined Felix and Nexvia product shape for FY27, and what does Bid Insights do relative to BidLevel? → `/competitive-update --competitor felix`
-5. How much of Felix's A$13m ARR comes from commercial head contractors, the buyer ProcurePro competes for?
-6. No competitor publishes pricing. Win/loss interviews would be worth more than further desk research on this dimension.
+1. How accurate are Procore's Bid Leveling Agent, E1's Quote Analysis and BidLevel on the same packages? Nobody publishes a measured comparison.
+2. When does Autodesk's estimate-line-item linking and scope-gap comparison, announced as coming "soon", ship, and outside the US? → `/competitive-update --competitor autodesk`
+3. Will E1 bring C-Link's post-award contracts to Australia, and does it keep awarded prices? Its terms allow training on anonymised data, while its Quote Analysis FAQ says inputs are not retained. → `/competitive-update --competitor estimateone`
+4. What does Felix's Bid Insights do at rollout, and does the September raise fund it through FY27? → `/competitive-update --competitor felix`
+5. Does Causeway sell tendering in Australia through the company it registered in 2025? → `/competitive-update --competitor causeway`
+6. Only E1 publishes a price. Win/loss interviews would be worth more here than more desk research.

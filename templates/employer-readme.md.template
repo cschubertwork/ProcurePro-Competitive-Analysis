@@ -1,0 +1,64 @@
+# {{COMPANY_NAME}} competitive analysis
+
+A worked example of an AI-run competitive research process, applied to [{{COMPANY_NAME}}]({{COMPANY_URL}}). {{N_COMPETITORS}} competitors surveyed, one taken deep, framed on **{{FRAMING_LENS}}**.
+
+**Start here: [the dashboard]({{PAGES_URL}}).** One page: the analysis first, with each competitor's homepage and the exhibits behind every finding, then how the process works. It is a single self-contained HTML file ([`index.html`](index.html)) with no external dependencies, so it also works offline if you clone the repo.
+
+The profiles and analysis were produced by running the skills in [`.claude/skills/`](.claude/skills), and the dashboard is rendered from them by the `build-dashboard` skill. You can run the same process on your own company.
+
+## What it found
+
+{{FINDINGS_SUMMARY}}
+
+## The competitors, and why these
+
+{{WHY_THESE_COMPETITORS}}
+
+[`reference/competitors.md`](reference/competitors.md) also lists who was deliberately left out and why.
+
+## Survey depth, and one deep dive
+
+{{N_LIGHT}} of the {{N_COMPETITORS}} profiles are at survey depth: snapshot plus the framing dimensions, from a handful of sources each. **{{DEEP_COMPETITOR}}** got the full treatment, because {{DEEP_JUSTIFICATION_SHORT}}.
+
+The deep profile is also where the verification discipline is on display: every sourced claim in it was re-checked against the page it cites on {{DATE}}, with a verbatim supporting quote recorded in [`analysis/verification-note.md`](analysis/verification-note.md). Claims whose sources could not be reached or did not support them were downgraded to inferred, visibly. Re-checked against their citations, note, not verified true: a vendor figure its own page supports is still a vendor claim, and stays marked as one.
+
+If one of the survey-depth competitors matters more to you, ask. A full profile with the same verification takes the process a few hours, not weeks.
+
+## How to read the sourcing
+
+Every claim in every profile carries one of two labels:
+
+- `- Observed: [claim] ([URL])` is a fact with a source attached
+- `- Inferred (assumption): [claim]` is a judgement that nobody published
+
+Roughly {{OBSERVED_PCT}}% of this analysis is Observed and {{INFERRED_PCT}}% Inferred. That ratio is stated on the dashboard and the inferred cells in the comparison matrix are individually marked.
+
+## Layout
+
+```
+reference/          product positioning, competitor list, profile template, design system
+profiles/           one profile per competitor ({{N_LIGHT}} survey depth, 1 full)
+analysis/           the cross-competitor analysis and the verification note
+index.html          the dashboard, one self-contained page
+.claude/skills/     the skills that produced all of the above
+templates/          scaffolding used by /setup for a new company
+check.py            the publish gate this repo passed before going public
+```
+
+## Running it on your own company
+
+With [Claude Code](https://claude.com/claude-code) in this directory:
+
+```
+/setup                          # your product, your competitors, your comparison template
+/scan-competitors               # survey-depth pass over every competitor
+/competitive-update --competitor <name>   # take one deep
+/generate-analysis <topic>      # cross-competitor analysis on any dimension you name
+/build-dashboard                # regenerate the dashboard from the current state
+```
+
+## Caveats
+
+This is desk research from public sources, produced on {{DATE}}. There are no win/loss interviews, customer calls or analyst briefings behind it. Published announcements are a lagging and partial view of what any company has running with customers, so nothing here should be read as an audit of a competitor's internal capability. {{EXTRA_CAVEATS}}
+
+Not affiliated with {{COMPANY_NAME}} or any company named here. All trademarks belong to their owners.
